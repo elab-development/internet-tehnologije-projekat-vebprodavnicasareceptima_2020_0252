@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { TiShoppingCart } from "react-icons/ti";
+import '../style/navbar.css';
 
 function Navbar({ loggedInUser, handleLogout }) {
 
@@ -19,29 +20,25 @@ function Navbar({ loggedInUser, handleLogout }) {
         <ul className="nav_lista">
           {loggedInUser ? (
             <>
-              {/*<li className="nav__item nav__item--search">
-                <input type="text" id="kriterijum" placeholder="Pretrazi" 
-                       name="search" onChange={()=>pretrazi(document.getElementById('kriterijum').value)}/>
-                <button type="submit" className='dugmePretraga'  ><BsSearch></BsSearch></button>
-          </li>*/}
+            <div className="ninin_div">
               <li className="nav_stavka nav_stavka_link">
                 <Link to='/namrinice'> NAMIRNICE </Link>
               </li>
               <li className="nav_stavka nav_stavka_link">
                 <Link to='/recepti'> RECEPTI </Link>
               </li>
-              {/*<li className="nav_item nav_item--link">
-                <Link to='/services'>SERVICES</Link>
-        </li>*/}
-              <li className="nav_stavka nav_item_link">
+              <li className="nav_stavka nav_stavka_link velika-stavka">
                 <Link to='/korpa'><TiShoppingCart /></Link>
-            </li>
+              </li>
+              </div>
+              <div className="ninin_div_2">
               <li className="nav_stavka nav_stavka-korisnik">
                 KORISNIK: {loggedInUser}{' '}
-                <button className="logout-button" onClick={handleLogoutClick}>
+                <button className="logout_dugme" onClick={handleLogoutClick}>
                   Logout
                 </button>
               </li>
+              </div>
             </>
           ) : (
             <li className="nav_stavka nav_stavka_link">
