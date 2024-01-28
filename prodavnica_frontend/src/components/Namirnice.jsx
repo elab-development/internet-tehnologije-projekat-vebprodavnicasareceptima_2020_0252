@@ -59,6 +59,7 @@ function Namirnice({ kriterijum }) {
         <div className="namirnice">
           {displayNamirnice.map((namirnice) => (
             <Namirnica
+              
               namirnicaId={namirnice.id}
               naziv={namirnice.naziv}
               slika={namirnice.slika}
