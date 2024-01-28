@@ -1,0 +1,56 @@
+.namirnice {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .namirniceStranica{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .pagination {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+  }
+  
+  .pagination button {
+    margin: 0 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color:#218618;
+  }
+  
+  .pagination button.active {
+    background-color:#218618;
+    color: #fff;
+    border: 1px solid #218618;
+  }
+
+  @keyframes scrollBg {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-330px);
+    }
+  }
+  
+  .scroll-bg {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-bottom: 330px;
+    background-color: #E8BA9B;
+    background-image: url('https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg');
+    background-size: cover;
+  }
