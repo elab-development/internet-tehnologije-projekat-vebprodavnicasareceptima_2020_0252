@@ -1,6 +1,7 @@
 import { BrowserRouter,Route,Routes,Navigate } from 'react-router-dom';
 import LoginForm from './components/Login.jsx';
 import Navbar from './components/Navbar.jsx';
+import Namirnice from './components/Namirnice.jsx';
 import React, { useState } from 'react';
 import './App.css';
 
@@ -34,7 +35,11 @@ function App() {
       />
        <Route 
         path="/home" 
-        element={loggedInUser ? (<Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />) : (<Navigate to="/" />)}
+        element={loggedInUser ? (
+          <>
+          <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+          <Namirnice />
+          </>) : (<Navigate to="/" />)}
         />
       </Routes>
     </BrowserRouter>
