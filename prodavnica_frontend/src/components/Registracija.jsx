@@ -7,8 +7,12 @@ import '../style/registracija.css';
 
 
 
+
+
 const RegistracijaForm = ({onRegistracija}) => {
     const navigate = useNavigate();
+   
+    
 
 
 //konstante
@@ -33,7 +37,8 @@ const RegistracijaForm = ({onRegistracija}) => {
     } else {
         dodatiKorisnici  = [...dodatiKorisnici, { email, password }];
         localStorage.setItem('users', JSON.stringify(dodatiKorisnici));
-     
+     alert('Uspesno ste se registrovali!')
+
       navigate('/');
     }
   };
