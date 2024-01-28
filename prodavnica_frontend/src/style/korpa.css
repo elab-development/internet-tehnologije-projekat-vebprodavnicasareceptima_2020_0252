@@ -1,0 +1,69 @@
+.scroll-bg {
+    background-color: rgba(0, 0, 0, 0.5); /* Primer za poluprozirnu pozadinu */
+  }
+  
+  .korpa {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #fff; /* ili neka druga boja pozadine */
+    border-radius: 8px; /* opcionalno zaobljavanje ivica */
+  }
+  
+  .korpa-stavke {
+    width: 70%;
+  }
+  
+  .korpa-stavka {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .korpa-stavka-slika {
+    width: 80px;
+    margin-right: 15px;
+  }
+  
+  .korpa-stavka-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .korpa-stavka-opis {
+    flex-grow: 1;
+  }
+  
+  .korpa-stavka-kontrole {
+    display: flex;
+    align-items: center;
+  }
+  
+  .korpa-stavka-cena {
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .korpa-stavka-ukloni {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .korpa-ukupno {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .korpa-ukupno h3 {
+    margin-top: 0;
+  }

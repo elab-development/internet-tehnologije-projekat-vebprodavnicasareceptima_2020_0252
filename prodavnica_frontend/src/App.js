@@ -37,14 +37,14 @@ function App() {
 
   }
 
-  const dodajUKorpu = (id, naziv, cena, velicina) => {
+  const dodajUKorpu = (id, naziv, cena, velicina,slika) => {
     const postojecaStavka = korpa.find(stavka => stavka.id === id);
     if (postojecaStavka) {
       setKorpa(korpa.map(stavka => 
         stavka.id === id ? { ...stavka, kolicina: stavka.kolicina + 1 } : stavka
       ));
     } else {
-      setKorpa([...korpa, { id, naziv, cena, velicina, kolicina: 1 }]);
+      setKorpa([...korpa, { id, naziv, cena, velicina,slika, kolicina: 1 }]);
     }
   };
 
@@ -90,7 +90,17 @@ function App() {
         path="/registracija"
           element ={< RegistracijaForm onRegistracija={handleRegistracija}/>}
           />
-           <Route path="/korpa" element={<Korpa />} />
+           <Route 
+    path="/korpa" 
+    element={loggedInUser ? (
+      <>
+        <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <Korpa />
+      </>
+    ) : (
+      <Navigate to="/" />
+    )}
+  />
       </Routes>
      
       </KorpaContext.Provider>
