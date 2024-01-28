@@ -1,6 +1,11 @@
 import React from 'react';
 import  { useState } from 'react';
 import '../style/login.css';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 
 const LoginForm = ({ onLogin }) => {
 
@@ -9,13 +14,15 @@ const LoginForm = ({ onLogin }) => {
   const [password, setPassword] = useState('');
 
   //staticki korisnici
-  const users = [
+  const staticUsers = [
     { email: 'luti@gmail.com', password: 'ninomi' },
     { email: 'nina@gmail.com', password: 'ninomi' }
   ];
 
   //fja za obradu funkcije logina
   const handleLogin = () => {
+    const usersSkladiste = JSON.parse(localStorage.getItem('users')) || [];
+    const users = [...staticUsers, ...usersSkladiste];
     const user = users.find(
       (user) => user.email === email && user.password === password
     );
@@ -25,6 +32,12 @@ const LoginForm = ({ onLogin }) => {
       alert('Pogrešan email ili lozinka.');
     }
   };
+
+  const navigate = useNavigate();
+
+const handleNavigateToRegistracija = () => {
+  navigate('/registracija');
+};
 
   return (
     <div class="scroll-bg">
@@ -58,7 +71,7 @@ const LoginForm = ({ onLogin }) => {
         <button className="login_dugme" onClick={handleLogin}>Login</button>
         </div>
         <div className="login_forma_dugme">
-        <button className="login_dugme" onClick={handleLogin}>Registacija</button>
+        <button className="login_dugme" onClick={handleNavigateToRegistracija}>Registacija</button>
         </div>
     </div>
     </div>

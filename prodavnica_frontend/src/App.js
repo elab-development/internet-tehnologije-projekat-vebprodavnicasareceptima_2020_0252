@@ -4,6 +4,8 @@ import Navbar from './components/Navbar.jsx';
 import React, { useState } from 'react';
 import './App.css';
 
+import RegistracijaForm from './components/Registracija.jsx';
+
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -23,6 +25,12 @@ function App() {
 
   };
 
+  const handleRegistracija = () =>{
+
+    return <Navigate to ="/"/>
+
+  }
+
 
   return (
     <div className="App">
@@ -36,8 +44,13 @@ function App() {
         path="/home" 
         element={loggedInUser ? (<Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />) : (<Navigate to="/" />)}
         />
+        <Route
+        path="/registracija"
+          element ={< RegistracijaForm onRegistracija={handleRegistracija}/>}
+          />
       </Routes>
     </BrowserRouter>
+
     </div>
   );
 }
