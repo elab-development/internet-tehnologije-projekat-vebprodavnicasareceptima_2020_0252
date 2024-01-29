@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { KorpaContext } from '../App'; // Ažurirajte putanju prema potrebi
+ 
 import '../style/korpa.css';
 
 
-function Korpa() {
-  const { korpa,ukloniIzKorpe,dodajUKorpu } = useContext(KorpaContext);
+
+    function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu }) {
+  
 
   return (
     <div class="scroll-bg">
@@ -23,7 +24,8 @@ function Korpa() {
                             <div className="korpa-stavka-kontrole">
                                 <button onClick={() => ukloniIzKorpe(stavka.id)}>-</button>
                                 <span>{stavka.kolicina}</span>
-                                <button onClick={() => dodajUKorpu(stavka.id, stavka.naziv, stavka.cena, stavka.velicina_pakovanja)}>+</button>
+                                <button onClick={() => dodajUKorpu({ id: stavka.id, naziv: stavka.naziv, cena: stavka.cena, velicina: stavka.velicina_pakovanja, slika: stavka.slika })}>+</button>
+
                             </div>
                             <div className="korpa-stavka-cena">
                                 {stavka.cena * stavka.kolicina} RSD

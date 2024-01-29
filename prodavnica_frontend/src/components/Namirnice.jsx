@@ -8,7 +8,7 @@ import slika5 from '../assets/brasno.jpg';
 import '../style/namirnice.css';
 
 
-function Namirnice({ kriterijum }) {
+function Namirnice({ kriterijum,dodajUKorpu }) {
     const postsPerPage = 3;
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -67,6 +67,7 @@ function Namirnice({ kriterijum }) {
               cena={namirnice.cena}
               velicina_pakovanja={namirnice.velicina_pakovanja}
               kategorijaId={namirnice.kategorijaId}
+              dodajUKorpu={dodajUKorpu}
             />
           ))}
         </div>

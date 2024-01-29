@@ -5,15 +5,17 @@ import Namirnice from './components/Namirnice.jsx';
 import React, { useState,createContext } from 'react';
 import './App.css';
 import Korpa from './components/Korpa';
-
 import RegistracijaForm from './components/Registracija.jsx';
 
-export const KorpaContext = createContext();
+import useKorpa from './hooks/useKorpa';
+
+
 
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [korpa, setKorpa] = useState([]);
+ 
+  const { korpa, dodajUKorpu, ukloniIzKorpe, ocistiKorpu } = useKorpa();
   
 
   //fja za login
@@ -26,7 +28,7 @@ function App() {
   //fja za logout
   const handleLogout = () => {
     setLoggedInUser(null);
-    setKorpa([]);
+    ocistiKorpu(); 
     return <Navigate to="/" />;
 
   };
@@ -37,42 +39,11 @@ function App() {
 
   }
 
-  const dodajUKorpu = (id, naziv, cena, velicina,slika) => {
-    const postojecaStavka = korpa.find(stavka => stavka.id === id);
-    if (postojecaStavka) {
-      setKorpa(korpa.map(stavka => 
-        stavka.id === id ? { ...stavka, kolicina: stavka.kolicina + 1 } : stavka
-      ));
-    } else {
-      setKorpa([...korpa, { id, naziv, cena, velicina,slika, kolicina: 1 }]);
-    }
-  };
-
-  const ukloniIzKorpe = (id) => {
-    setKorpa(trenutnaKorpa => {
-      const stavka = trenutnaKorpa.find(stavka => stavka.id === id);
-      if (stavka.kolicina > 1) {
-        // Ako ima više od jednog proizvoda, smanji količinu
-        return trenutnaKorpa.map(stavka =>
-          stavka.id === id ? { ...stavka, kolicina: stavka.kolicina - 1 } : stavka
-        );
-      } else {
-        // Ako ima samo jedan proizvod, ukloni stavku
-        return trenutnaKorpa.filter(stavka => stavka.id !== id);
-      }
-    });
-  };
-  
-
-  
-
-
-
   return (
     <div className="App">
       
       <BrowserRouter>
-      <KorpaContext.Provider value={{ korpa, setKorpa, dodajUKorpu,ukloniIzKorpe }}>
+     
       <Routes>
       <Route 
         path="/" 
@@ -95,7 +66,7 @@ function App() {
     element={loggedInUser ? (
       <>
         <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Korpa />
+        <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} />
       </>
     ) : (
       <Navigate to="/" />
@@ -103,7 +74,7 @@ function App() {
   />
       </Routes>
      
-      </KorpaContext.Provider>
+    
     </BrowserRouter>
 
     </div>

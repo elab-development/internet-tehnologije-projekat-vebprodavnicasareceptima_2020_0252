@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import '../style/namirnica.css';
-import { KorpaContext } from '../App';
 
 
-function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja , kategorijaId}) {
-  const { dodajUKorpu } = useContext(KorpaContext);
+
+
+function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu}) {
+  
 
     return (
       <div className="namirnica">
@@ -13,6 +14,7 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         </div>
         <div className="namrinica_sadrzaj">
 
+
         {slika && <img src={slika} alt="slika namirnice" className="namirnica_slika" />}
         <p className="namirnica_opis">Opis: {opis}</p>
         
@@ -20,8 +22,16 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
 
         <p className="namrinica_velicina_pakovanja">Veličina pakovanja: {velicina_pakovanja}</p>
 
-
-        <button className="namirnica_dugme" onClick={() => dodajUKorpu(namirnicaId, naziv, cena, velicina_pakovanja,slika)}>Dodaj u korpu</button>
+        <button className="namirnica_dugme" onClick={() => dodajUKorpu({
+  id: namirnicaId,
+  naziv,
+  cena,
+  velicina: velicina_pakovanja,
+  slika
+})}>
+  Dodaj u korpu
+</button>
+       
         </div>
       </div>
     );
