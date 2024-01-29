@@ -22,7 +22,7 @@ function Navbar({ loggedInUser, handleLogout }) {
             <>
             <div className="ninin_div">
               <li className="nav_stavka nav_stavka_link">
-                <Link to='/namrinice'> NAMIRNICE </Link>
+                <Link to='/namirnice'> NAMIRNICE </Link>
               </li>
               <li className="nav_stavka nav_stavka_link">
                 <Link to='/recepti'> RECEPTI </Link>

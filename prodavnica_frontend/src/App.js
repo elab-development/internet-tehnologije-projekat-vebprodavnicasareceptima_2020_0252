@@ -6,6 +6,8 @@ import React, { useState,createContext } from 'react';
 import './App.css';
 import Korpa from './components/Korpa';
 import RegistracijaForm from './components/Registracija.jsx';
+import NutritionInfo from './components/NutritionInfo';
+
 
 import useKorpa from './hooks/useKorpa';
 
@@ -72,6 +74,23 @@ function App() {
       <Navigate to="/" />
     )}
   />
+
+<Route 
+  path="/namirnice" 
+  element={loggedInUser ? (
+    <>
+      <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+    
+      <NutritionInfo />
+     
+    </>
+  ) : (
+    <Navigate to="/" />
+  )}
+/>
+
+
+
       </Routes>
      
     
