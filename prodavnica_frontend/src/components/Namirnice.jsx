@@ -6,9 +6,10 @@ import slika3 from '../assets/mleko.jpg';
 import slika4 from '../assets/cokolada.jpg';
 import slika5 from '../assets/brasno.jpg';
 import '../style/namirnice.css';
+import Filter from './Filter';
 
 
-function Namirnice({ kriterijum,dodajUKorpu }) {
+function Namirnice({ kriterijum,dodajUKorpu,pretrazi }) {
     const postsPerPage = 3;
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -34,7 +35,7 @@ function Namirnice({ kriterijum,dodajUKorpu }) {
     const filterNamirnice = () => {
       return kriterijum
         ? allNamirnice.filter((namirnice) =>
-            namirnice.naziv.toLowerCase().includes(kriterijum.toLowerCase())
+            namirnice.naziv.toLowerCase().startsWith(kriterijum.toLowerCase())
           )
         : allNamirnice;
     };
@@ -55,6 +56,7 @@ function Namirnice({ kriterijum,dodajUKorpu }) {
   
     return (
         <div class="scroll-bg">
+        <Filter pretrazi={pretrazi}/>
       <div className='namirniceStranica'>
         <div className="namirnice">
           {displayNamirnice.map((namirnice) => (

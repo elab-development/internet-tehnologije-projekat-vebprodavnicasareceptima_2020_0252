@@ -8,7 +8,6 @@ import Korpa from './components/Korpa';
 import RegistracijaForm from './components/Registracija.jsx';
 import NutritionInfo from './components/NutritionInfo';
 
-
 import useKorpa from './hooks/useKorpa';
 
 
@@ -41,6 +40,16 @@ function App() {
 
   }
 
+  //uslov po kom ce se vrsiti pretraga
+  const [uslovPretrage,setUslovPretrage]=useState("");
+
+
+  //funkcija koja setuje uslov pretrage
+  function pretrazi(uslovPretrage){
+    setUslovPretrage(uslovPretrage);
+  }
+
+
   return (
     <div className="App">
       
@@ -56,7 +65,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} />
           </>) : (<Navigate to="/" />)}
         />
         <Route
