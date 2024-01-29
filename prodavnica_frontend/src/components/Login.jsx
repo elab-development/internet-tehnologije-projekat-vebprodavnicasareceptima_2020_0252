@@ -3,6 +3,7 @@ import  { useState } from 'react';
 import '../style/login.css';
 import { useNavigate } from 'react-router-dom';
 import InputField from './InputField.jsx';
+import ReusableDugme from './ReusableDugme.jsx';
 
 
 
@@ -70,12 +71,10 @@ const handleNavigateToRegistracija = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
         </div>
-        <div className="login_forma_dugme">
-        <button className="login_dugme" onClick={handleLogin}>Login</button>
-        </div>
-        <div className="login_forma_dugme">
-        <button className="login_dugme" onClick={handleNavigateToRegistracija}>Registacija</button>
-        </div>
+        <div>
+      <ReusableDugme label="Login" onClick={handleLogin} />
+      <ReusableDugme label="Registracija" onClick={handleNavigateToRegistracija} />
+    </div>
     </div>
     </div>
   );

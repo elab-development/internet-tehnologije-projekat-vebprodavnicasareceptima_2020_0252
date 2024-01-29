@@ -3,6 +3,7 @@ import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/registracija.css';
 import InputField from './InputField.jsx';
+import ReusableDugme from './ReusableDugme.jsx';
 
 
 
@@ -114,9 +115,9 @@ const RegistracijaForm = ({onRegistracija}) => {
       />
       </div>
 
-      <div className="reg_forma_dugme">
-        <button className="reg_dugme" onClick={handleRegistracija}>Registruj se</button>
-      </div>
+      <br />
+      <ReusableDugme label="Registruj se" onClick={handleRegistracija} />
+   
     </div>
     </div>
   );
