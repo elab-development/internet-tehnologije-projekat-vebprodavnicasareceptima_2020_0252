@@ -2,6 +2,7 @@ import React from 'react';
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/registracija.css';
+import InputField from './InputField.jsx';
 
 
 
@@ -51,65 +52,66 @@ const RegistracijaForm = ({onRegistracija}) => {
       </div>
 
       <div className="reg_forma_ime">
-        <label htmlFor="ime">Ime:</label>
-        <br />
-        <input
-          type="text"
-          id="ime"
-          placeholder='Ime'
-          value={ime}
-          onChange={(e) => setIme(e.target.value)}
-        />
+       
+        
+        <InputField
+        label="Ime"
+        id="ime"
+        type="text"
+        placeholder="Ime"
+        value={ime}
+        onChange={(e) => setIme(e.target.value)}
+      />
       </div>
 
       <div className="reg_forma_prezime">
-        <label htmlFor="prezime">Prezime:</label>
-        <br />
-        <input
-          type="text"
-          id="prezime"
-          placeholder='Prezime'
-          value={prezime}
-          onChange={(e) => setPrezime(e.target.value)}
-        />
+       
+      
+        <InputField
+        label="Prezime"
+        id="prezime"
+        type="text"
+        placeholder="Prezime"
+        value={prezime}
+        onChange={(e) => setPrezime(e.target.value)}
+      />
       </div>
 
       <div className="reg_forma_adresa">
-        <label htmlFor="adresa">Adresa:</label>
-        <br />
-        <input
-          type="text"
-          id="adresa"
-          placeholder='Adresa'
-          value={adresa}
-          onChange={(e) => setAdresa(e.target.value)}
-        />
+       
+        
+        <InputField
+        label="Adresa"
+        id="adresa"
+        type="text"
+        placeholder="Adresa"
+        value={adresa}
+        onChange={(e) => setAdresa(e.target.value)}
+      />
       </div>
 
       <div className="reg_forma_email">
       
-        <label htmlFor="email">Email:</label>
-        <br />
-        <input
-          type="email"
-          id="email"
-          placeholder='Email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <InputField
+        label="Email"
+        id="Email"
+        type="text"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
       </div>
 
       <div className="reg_forma_lozinka">
      
-        <label htmlFor="password">Lozinka:</label>
-        <br />
-        <input
-          type="password"
-          id="password"
-          placeholder='Lozinka'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <InputField
+        label="Lozinka"
+        id="password"
+        type="password"
+        placeholder="Lozinka"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       </div>
 
       <div className="reg_forma_dugme">

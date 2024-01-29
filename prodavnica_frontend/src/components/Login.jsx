@@ -2,6 +2,7 @@ import React from 'react';
 import  { useState } from 'react';
 import '../style/login.css';
 import { useNavigate } from 'react-router-dom';
+import InputField from './InputField.jsx';
 
 
 
@@ -46,26 +47,28 @@ const handleNavigateToRegistracija = () => {
         <h2>Login</h2>
         </div>
         <div className="login_forma_email">
-        <label htmlFor="Email">Email:</label>
-        <br />
-        <input
-          type="text"
-          id="Email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+       
+       
+        <InputField
+        label="Email"
+        id="Email"
+        type="text"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
         </div>
         <div className="login_forma_lozinka">
-        <label htmlFor="password">Lozinka:</label>
-        <br />
-        <input
-          type="password"
-          id="password"
-          placeholder="Lozinka"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+       
+        
+        <InputField
+        label="Lozinka"
+        id="password"
+        type="password"
+        placeholder="Lozinka"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
         </div>
         <div className="login_forma_dugme">
         <button className="login_dugme" onClick={handleLogin}>Login</button>
