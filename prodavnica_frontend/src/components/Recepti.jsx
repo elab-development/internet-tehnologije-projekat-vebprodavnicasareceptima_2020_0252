@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import slika1 from "../assets/palacinke.jpg";
 import slika2 from "../assets/salata1.jpg";
 import slika3 from "../assets/hleb.jpg";
 import slika4 from "../assets/pilet.jpg";
 import Filter from "./Filter";
 import Recept from "./Recept";
+import '../style/recepti.css';
+import '../style/recept.css';
 
 function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
   const postsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(0);
 
+  
+  
+  
   const recepti = [
     {
       id: 1,
@@ -47,19 +52,31 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
 
   const [allRecepti, setAllRecepti] = useState(recepti);
 
+
+  useEffect(() => {
+    // Resetujemo na prvu stranicu svaki put kada se promeni kriterijum
+    setCurrentPage(0);
+  }, [kriterijum]); 
+
+
   // Funkcija za filtriranje
   const filterRecepti = () => {
-    return kriterijum
-      ? allRecepti.filter((recepti) =>
-          recepti.naziv.toLowerCase().startsWith(kriterijum.toLowerCase())
+    const filtered = kriterijum
+      ? allRecepti.filter((recept) =>
+          recept.naziv.toLowerCase().startsWith(kriterijum.toLowerCase())
         )
       : allRecepti;
+  
+    
+    return filtered;
   };
 
   // Funkcija za paginaciju
   const paginateRecepte = (recepti) => {
     const startIndex = currentPage * postsPerPage;
-    return recepti.slice(startIndex, startIndex + postsPerPage);
+    const paginated = recepti.slice(startIndex, startIndex + postsPerPage);
+  
+  return paginated;
   };
 
   // Prikaz usluga na osnovu trenutnih stranica i filtriranja
@@ -69,22 +86,25 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
+ 
   return (
     <div class="scroll-bg">
       <Filter pretrazi={pretrazi} />
       <div className="receptiStranica">
-        <div className="recepti">
-          {displayRecepte.map((recepti) => (
-            <Recept
-              key={recepti.id}
-              receptId={recepti.id}
-              naziv={recepti.naziv}
-              slika={recepti.slika}
-              /*sastojci={recepti.sastojci}*/
-            />
-          ))}
-        </div>
+      <div className="recepti">
+  {displayRecepte.map((recept) => {
+    console.log("Rendering recept:", recept);
+    return (
+      <Recept
+        key={recept.id}
+        receptId={recept.id}
+        naziv={recept.naziv}
+        slika={recept.slika}
+       
+      />
+    );
+  })}
+</div>
         <div className="pagination">
           {Array.from({
             length: Math.ceil(filterRecepti().length / postsPerPage),
