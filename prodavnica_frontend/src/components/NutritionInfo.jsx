@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getNutrients } from '../NutritionService';
+//import '../style/nutrition.css';
 
 function NutritionInfo() {
   const [query, setQuery] = useState('');
@@ -13,15 +14,18 @@ function NutritionInfo() {
   };
 
   return (
-    <div>
+    <div class="scroll-bg">
+    <div class = "panel">
       <h2>Nutritivne Informacije</h2>
+      <p>Unesite namirnicu ili obrok i saznajte njene nutritivne vrednosti</p>
+      
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Unesite naziv namirnice"
       />
-      <button onClick={handleSearch}>Pretraži</button>
+      <button class ="dugme-nutrition" onClick={handleSearch}>Pretraži</button>
       {nutritionData && (
   <div>
     <h3>Rezultati za {nutritionData.foods[0].food_name}:</h3>
@@ -50,7 +54,9 @@ function NutritionInfo() {
 )}
 
     </div>
+    </div>
   );
+ 
 }
 
 export default NutritionInfo;

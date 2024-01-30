@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://trackapi.nutritionix.com/v2/natural/nutrients';
-const APP_ID = 'f1804fdc'; 
+const APP_ID = 'f1804fdc'; // Vaš Application ID
 const API_KEY = '60562ac6550272c60c63e065fdeaab97'; 
 
 export const getNutrients = async (query) => {
