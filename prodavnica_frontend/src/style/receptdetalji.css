@@ -45,6 +45,10 @@
     flex-wrap: wrap;
 }
 
+.recept_detalji_divic{
+    margin-right: 10px;
+}
+
 #naslov{
     color: white;
     background-color: #218618;

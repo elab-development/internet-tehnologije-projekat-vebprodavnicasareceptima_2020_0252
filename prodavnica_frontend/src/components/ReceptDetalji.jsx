@@ -45,7 +45,7 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
         </div>
         <div className="recept_detalji_lista">
           {sastojci.map((sastojak, index) => (
-            <div key={index}>
+            <div className="recept_detalji_divic" key={index}>
              
               <Namirnica 
                 key={sastojak.id}
