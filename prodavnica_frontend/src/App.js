@@ -8,8 +8,9 @@ import Korpa from './components/Korpa';
 import RegistracijaForm from './components/Registracija.jsx';
 import NutritionInfo from './components/NutritionInfo';
 
-
 import useKorpa from './hooks/useKorpa';
+import Recepti from './components/Recepti';
+import { kategorije , namirnice} from './data.js';
 
 
 
@@ -41,6 +42,18 @@ function App() {
 
   }
 
+  //uslov po kom ce se vrsiti pretraga
+  const [uslovPretrage,setUslovPretrage]=useState("");
+
+
+  //funkcija koja setuje uslov pretrage
+  function pretrazi(uslovPretrage){
+    setUslovPretrage(uslovPretrage);
+  }
+
+
+
+
   return (
     <div className="App">
       
@@ -51,44 +64,46 @@ function App() {
         path="/" 
         element={loggedInUser ? (<Navigate to="/home" />) : (<LoginForm onLogin={handleLogin} />)}
       />
-       <Route 
+      <Route 
         path="/home" 
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirnice}  />
           </>) : (<Navigate to="/" />)}
         />
-        <Route
+      <Route
         path="/registracija"
           element ={< RegistracijaForm onRegistracija={handleRegistracija}/>}
-          />
-           <Route 
-    path="/korpa" 
-    element={loggedInUser ? (
-      <>
+        />
+      <Route 
+            path="/korpa" 
+            element={loggedInUser ? (
+            <>
+            <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} />
+            </>
+             ) : (<Navigate to="/" /> )}
+      />
+
+      <Route 
+        path="/namirnice" 
+        element={loggedInUser ? (
+        <>
         <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} />
-      </>
-    ) : (
-      <Navigate to="/" />
-    )}
-  />
-
-<Route 
-  path="/namirnice" 
-  element={loggedInUser ? (
-    <>
-      <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-    
-      <NutritionInfo />
-     
-    </>
-  ) : (
-    <Navigate to="/" />
-  )}
-/>
-
+        <NutritionInfo />
+        </>
+        ) : (<Navigate to="/" />)}
+        />
+      <Route 
+        path="/recepti" 
+        element={loggedInUser ? (
+        <>
+        <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <Recepti namirnice={namirnice} kriterijum={uslovPretrage} pretrazi={pretrazi} />
+        </>
+        ) : (<Navigate to="/" />)}
+        />
 
 
       </Routes>
