@@ -37,7 +37,7 @@ function Namirnice({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
   };
 
   return (
-    <div class="scroll-bg">
+    <div >
       <Filter pretrazi={pretrazi} />
       <div className="namirniceStranica">
         <div className="namirnice">

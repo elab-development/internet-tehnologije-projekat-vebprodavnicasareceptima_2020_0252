@@ -42,7 +42,6 @@ const handleNavigateToRegistracija = () => {
 };
 
   return (
-    <div class="scroll-bg">
     <div className="login_forma">
       <div className="login_forma_naslov">
         <h2>Login</h2>
@@ -74,7 +73,6 @@ const handleNavigateToRegistracija = () => {
         <div>
       <ReusableDugme label="Login" onClick={handleLogin} />
       <ReusableDugme label="Registracija" onClick={handleNavigateToRegistracija} />
-    </div>
     </div>
     </div>
   );

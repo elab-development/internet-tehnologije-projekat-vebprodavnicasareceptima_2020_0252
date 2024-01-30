@@ -14,7 +14,7 @@ function NutritionInfo() {
   };
 
   return (
-    <div class="scroll-bg">
+    <div >
     <div className="nutrition_forma">
     <div class = "naslov">
       <h2>Nutritivne Informacije</h2>
