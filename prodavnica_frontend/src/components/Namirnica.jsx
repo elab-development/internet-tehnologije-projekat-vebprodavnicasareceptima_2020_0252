@@ -23,14 +23,9 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         <p className="namrinica_velicina_pakovanja">Veličina pakovanja: {velicina_pakovanja}</p>
 
         <button className="namirnica_dugme" onClick={() => dodajUKorpu({
-  id: namirnicaId,
-  naziv,
-  cena,
-  velicina: velicina_pakovanja,
-  slika
-})}>
-  Dodaj u korpu
-</button>
+          id: namirnicaId, naziv,cena,velicina: velicina_pakovanja,slika})}>
+        Dodaj u korpu
+        </button>
        
         </div>
       </div>
