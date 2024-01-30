@@ -20,13 +20,15 @@ function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
         )}
         <div className="recept_sastojci">
           <p>Sastojci:</p>
-          <ul>
+          <div className="sastojci_container">
+          <ul className="lista_bez_tackica">
             {naziviSastojaka.map((nazivSastojka, index) => (
               <li key={index}>{nazivSastojka}</li>
             ))}
           </ul>
+          </div>
         </div>
-        <Link to={`/recepti/${receptId}`}>Prikaži detaljnije</Link>
+        <Link className="prikazi" to={`/recepti/${receptId}`}>Prikaži detaljnije</Link>
        
       </div>
     </div>

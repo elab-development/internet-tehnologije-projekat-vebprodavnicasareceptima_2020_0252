@@ -108,8 +108,15 @@ function App() {
         ) : (<Navigate to="/" />)}
         />
 
-<Route path="/recepti/:id"
- element={<ReceptDetalji recepti={recepti} namirnice={namirnice} dodajUKorpu = {dodajUKorpu}/>} />
+      <Route 
+        path="/recepti/:id"
+        element={loggedInUser ? (
+          <>
+          <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <ReceptDetalji recepti={recepti} namirnice={namirnice} dodajUKorpu = {dodajUKorpu}/>
+        </>
+        ) : (<Navigate to="/" />)} 
+        />
       </Routes>
      
     

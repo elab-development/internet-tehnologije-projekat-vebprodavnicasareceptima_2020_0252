@@ -1,13 +1,3 @@
-.scroll-bg {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    padding-bottom: 330px;
-    background-color: #E8BA9B;
-    background-image: url('https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg');
-    background-size: cover;
-  }
-
   .receptiStranica{
     display: flex;
     flex-direction: column;

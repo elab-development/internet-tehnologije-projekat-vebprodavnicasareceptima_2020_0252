@@ -47,11 +47,11 @@ export const namirnice = [
     { id: 13, naziv: 'Testenina', opis: 'Testenina Fusilli', cena: 200, slika: slika13,velicina_pakovanja:"500g", kategorijaId:kategorije.at(3)},
     { id: 14, naziv: 'Luk crveni', opis: 'Domaći luk', cena: 90, slika: slika14,velicina_pakovanja:"1kg", kategorijaId:kategorije.at(1)},
     { id: 15, naziv: 'Jaja', opis: 'Sveža jaja', cena: 280, slika: slika15,velicina_pakovanja:"10 kom.", kategorijaId:kategorije.at(3)},
-    { id: 16, naziv: 'So', opis: 'Morska so', cena: 520, slika: slika16,velicina_pakovanja:"400g", kategorijaId:kategorije.at(4)},
+    { id: 16, naziv: 'So', opis: 'Morska so', cena: 100, slika: slika16,velicina_pakovanja:"400g", kategorijaId:kategorije.at(4)},
     { id: 17, naziv: 'Sitni sir', opis: 'Šabački sir meki punomasni 45%mm', cena: 400, slika: slika17,velicina_pakovanja:"500g", kategorijaId:kategorije.at(2)},
     { id: 18, naziv: 'Kakao', opis: 'Kakao prah', cena: 250, slika: slika18,velicina_pakovanja:"80g", kategorijaId:kategorije.at(4)},
     { id: 19, naziv: 'Maslac', opis: 'Maslac neslani', cena: 420, slika: slika19,velicina_pakovanja:"200g", kategorijaId:kategorije.at(2)},
-    { id: 20, naziv: 'Prašak za pecivo', opis: 'prašak za pecivo', cena: 520, slika: slika20,velicina_pakovanja:"12g", kategorijaId:kategorije.at(3)},
+    { id: 20, naziv: 'Prašak za pecivo', opis: 'prašak za pecivo', cena: 52, slika: slika20,velicina_pakovanja:"12g", kategorijaId:kategorije.at(3)},
   ];
 
   export const recepti = [

@@ -30,6 +30,30 @@
     align-items: center;
 
   }
+
+  .recept_sastojci{
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sastojci_container {
+    max-height: 70px; 
+    overflow-y: auto; 
+  }
+
+  .sastojci_container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .lista_bez_tackica{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
 .recept_dugme{
 
   background-color: #218618;
@@ -48,4 +72,12 @@
 .recept_dugme:hover{
   background-color: rgb(99, 158, 91);
   color: black;
+}
+
+.prikazi{
+  color: black;
+  text-decoration: none;
+  background-color: #218618;
+  padding: 10px 15px;
+  border-radius: 25px;
 }

@@ -52,7 +52,7 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
   };
  
   return (
-    <div class="scroll-bg">
+    <div >
       <Filter pretrazi={pretrazi} />
       <div className="receptiStranica">
       <div className="recepti">
