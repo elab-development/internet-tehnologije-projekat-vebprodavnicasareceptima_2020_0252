@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import '../style/recept.css';
 
 function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
   

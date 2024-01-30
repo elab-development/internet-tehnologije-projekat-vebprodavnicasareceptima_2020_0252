@@ -1,7 +1,8 @@
 // ReceptDetalji.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Namirnica from './Namirnica'; //
+import Namirnica from './Namirnica';
+import '../style/receptdetalji.css';
 
 function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
     let { id } = useParams();
@@ -29,11 +30,20 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
   
     return (
       <div>
+        <div className="recept_detalji_info">
+          <div className="recept_detalji_levideo">
         <h1>{odabraniRecept.naziv}</h1>
-        <img src={odabraniRecept.slika} alt={odabraniRecept.naziv} />
-        <p>{odabraniRecept.tekst}</p>
-        <h2>Sastojci:</h2>
-        <div>
+        <img className="recept_slicica" src={odabraniRecept.slika} alt={odabraniRecept.naziv} />
+        </div>
+        <div className="recept_detalji_desnideo">
+          <p>{odabraniRecept.tekst}</p>
+          </div>
+        </div>
+        <div className="recept_detalji_sastojci">
+        <div  >
+          <h2 id="naslov">Sastojci:</h2>
+        </div>
+        <div className="recept_detalji_lista">
           {sastojci.map((sastojak, index) => (
             <div key={index}>
              
@@ -51,11 +61,11 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
             </div>
           ))}
         </div>
-        <div>
-     
-      <button onClick={dodajSveUKorpu}>Dodaj sve namirnice u korpu</button>
-    </div>
+        <div className="recept_detalji_dugme">
+          <button className="recept_detalji_dugmence" onClick={dodajSveUKorpu}>Dodaj sve namirnice u korpu</button>
+        </div>
       </div>
+    </div>
     );
   }
   
