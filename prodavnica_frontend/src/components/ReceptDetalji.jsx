@@ -17,7 +17,13 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
 
     const dodajSveUKorpu = () => {
         sastojci.forEach(sastojak => {
-          dodajUKorpu(sastojak);
+          dodajUKorpu({
+            id: sastojak.id,
+            naziv: sastojak.naziv,
+            cena: sastojak.cena,
+            velicina: sastojak.velicina_pakovanja,
+            slika: sastojak.slika
+          });
         });
       };
   

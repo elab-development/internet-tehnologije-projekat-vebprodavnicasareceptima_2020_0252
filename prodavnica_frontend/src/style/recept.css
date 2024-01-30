@@ -25,10 +25,12 @@
   
   .recept_sadrzaj {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 
   }
-.namirnica_dugme{
+.recept_dugme{
 
   background-color: #218618;
   margin-left: 5px;
@@ -43,7 +45,7 @@
   height: 40px;
   margin-bottom: 20px;
 }
-.namirnica_dugme:hover{
+.recept_dugme:hover{
   background-color: rgb(99, 158, 91);
   color: black;
 }

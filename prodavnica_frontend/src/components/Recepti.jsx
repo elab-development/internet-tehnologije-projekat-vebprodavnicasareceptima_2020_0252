@@ -64,6 +64,9 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
         receptId={recept.id}
         naziv={recept.naziv}
         slika={recept.slika}
+        namirnice={namirnice}
+        sastojci={recept.sastojci}
+        
        
       />
     );

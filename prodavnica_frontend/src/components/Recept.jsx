@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-function Recept({ receptId, naziv, tekst, slika, sastojci }) {
+function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
+  
+  const naziviSastojaka = sastojci.map(idSastojka => {
+    const namirnica = namirnice.find(n => n.id === idSastojka);
+    return namirnica ? namirnica.naziv : 'Nepoznata namirnica';
+  });
+  
+  
   return (
     <div className="recept">
       <div className="recept_naziv">
@@ -11,8 +18,16 @@ function Recept({ receptId, naziv, tekst, slika, sastojci }) {
         {slika && (
           <img src={slika} alt="slika recepta" className="recept_slika" />
         )}
-        <p className="recept_sastojci">Sastojci: {sastojci}</p>
+        <div className="recept_sastojci">
+          <p>Sastojci:</p>
+          <ul>
+            {naziviSastojaka.map((nazivSastojka, index) => (
+              <li key={index}>{nazivSastojka}</li>
+            ))}
+          </ul>
+        </div>
         <Link to={`/recepti/${receptId}`}>Prikaži detaljnije</Link>
+       
       </div>
     </div>
   );
