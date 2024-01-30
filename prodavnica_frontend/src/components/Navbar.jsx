@@ -21,11 +21,14 @@ function Navbar({ loggedInUser, handleLogout }) {
           {loggedInUser ? (
             <>
             <div className="ninin_div">
-              <li className="nav_stavka nav_stavka_link">
-                <Link to='/namirnice'> NAMIRNICE </Link>
+            <li className="nav_stavka nav_stavka_link">
+                <Link to='/home'> NAMIRNICE </Link>
               </li>
               <li className="nav_stavka nav_stavka_link">
                 <Link to='/recepti'> RECEPTI </Link>
+              </li>
+            <li className="nav_stavka nav_stavka_link">
+                <Link to='/namirnice'> PODACI O NAMIRNICAMA </Link>
               </li>
               <li className="nav_stavka nav_stavka_link velika-stavka">
                 <Link to='/korpa'><TiShoppingCart /></Link>
