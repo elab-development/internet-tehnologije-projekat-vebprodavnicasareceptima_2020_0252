@@ -11,7 +11,7 @@ function Recept({ receptId, naziv, tekst, slika, sastojci }) {
           <img src={slika} alt="slika recepta" className="recept_slika" />
         )}
         <p className="recept_sastojci">Sastojci: {sastojci}</p>
-        <button className="namirnica_dugme">Prikaži detaljnije</button>
+        <button className="recept_dugme">Prikaži detaljnije</button>
       </div>
     </div>
   );

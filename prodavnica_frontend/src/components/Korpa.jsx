@@ -12,6 +12,7 @@ import '../style/korpa.css';
     <div className="korpa">
         <div className="korpa-stavke">
             <h2>Vaša korpa</h2>
+            <hr />
             {korpa.length > 0 ? (
                 korpa.map(stavka => (
                     <div className="korpa-stavka" key={stavka.id}>
