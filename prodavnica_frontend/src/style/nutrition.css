@@ -1,19 +1,33 @@
-.panel{
+.nutrition_forma{
     display: flex;
-    /*justify-content: center;*/
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 400px;
-    height: auto;
+    width: 700px;
+    height: 230px;
     margin-top: 20px;
     border: 4px solid #218618;
     border-radius: 15px;
     background-color: white;
-
 }
-.dugme-nutrition{
 
+.nutrition_rezultati{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 700px;
+    border: 4px solid #218618;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.naslov{
+    margin-bottom: 0px;
+}
+
+.dugme_nutrition{
     background-color: #218618;
     margin-left: 5px;
     color: black;
@@ -23,15 +37,25 @@
     font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 150px;
-    height: 40px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    
-
+    width: 100px;
 }
 
-.nutrition:hover{
+.dugme_nutrition:hover{
     background-color: rgb(99, 158, 91);
     color: black;
+}
+
+
+#polje{
+    margin-bottom: 20px;
+}
+
+.nutrition_sadrzaj{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nutrition_stavka{
+    margin-left: 25px;
 }
