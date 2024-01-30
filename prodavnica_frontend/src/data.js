@@ -18,6 +18,10 @@ import slika17 from './assets/sir.jpg';
 import slika18 from './assets/kakao.jpg';
 import slika19 from './assets/maslac.jpg';
 import slika20 from './assets/prasak.jpg';
+import slika01 from "./assets/palacinke.jpg";
+import slika02 from "./assets/salata1.jpg";
+import slika03 from "./assets/hleb.jpg";
+import slika04 from "./assets/pilet.jpg";
 
 export const kategorije=[
     {id:1, naziv:'Voće i povrće'},
@@ -48,4 +52,42 @@ export const namirnice = [
     { id: 18, naziv: 'Kakao', opis: 'Kakao prah', cena: 250, slika: slika18,velicina_pakovanja:"80g", kategorijaId:kategorije.at(4)},
     { id: 19, naziv: 'Maslac', opis: 'Maslac neslani', cena: 420, slika: slika19,velicina_pakovanja:"200g", kategorijaId:kategorije.at(2)},
     { id: 20, naziv: 'Prašak za pecivo', opis: 'prašak za pecivo', cena: 520, slika: slika20,velicina_pakovanja:"12g", kategorijaId:kategorije.at(3)},
+  ];
+
+  export const recepti = [
+    {
+      id: 1,
+      naziv: "Palačinke",
+      tekst:
+        "Jaja mutiti sa vodom i mljekom Pa dodati Brasno pomjesano sa kakaom i mutiti toliko dok se sve fino ne sjedini. Pustiti da miruje nekih 20 Minuta Pa prziti palacinke. Sluziti po zelji sa cokoladnim sosom i marmeladom od kajsija su najukusnije.",
+      slika:  slika01,
+      sastojci: [6,5,4,7,15,18]
+    },
+    {
+      id: 2,
+      naziv: "Salata sa piletinom",
+      tekst:
+        "Pileće meso se začini i ispeče..U širok tanjir ili na poslužavnik se kao podloga stavlja zelena salata, a preko toga se ređaju ostale komponente.Stavite seckanu piletinu u sredinu. Oko nje rasporedite nasečeno kuvano jaje, paradajz, i sir.Salata je ukrašena sa pola glavice luka, isečene na kolutove. Neposredno pre serviranja začiniti.",
+      slika:
+        slika02,
+        sastojci: [8,9,11,14,15]
+    },
+    {
+      id: 3,
+      naziv: "Domaći hleb",
+      tekst:
+        "Brasno prosejati i sipati u posudu za mesenje.U sredini brasna izmrviti kvasac dodati so i secer.Sipati mlaku vodu i zamesiti testo.Testo mora da bude meko.Ostaviti da nadodje , pa jos jednom premesiti i ponovo ostaviti da nadodje.Jos jednom premesiti i sipati u dobro modmazan pleh.Po vrhu izbosti testo sa viljuskom na vise mesta.Peci u dobro zagrejanoj rerni na 220c",
+      slika:
+        slika03 /*sastojci:[namirnice.at(4),namirnice.at(20),namirnice.at(16),namirnice.at(12)]*/,
+        sastojci: [4,20,16,12]
+    },
+    {
+      id: 4,
+      naziv: "Piletina sa pirinčem",
+      tekst:
+        "Propržiti piletinu da porumeni, skloniti je sa vatre u tanjir, a u šerpi gde se pržila piletina stavimo iseckani crni luk. Dodati i sve začine, sipati oprani pirinač i naliti čašom (2 dl) vode.Staviti da se peče oko 40 minuta dok se pirinač dobro ne ispeče.",
+      slika:
+        slika04 /*sastojci:[namirnice.at(10),namirnice.at(14),namirnice.at(8)]*/,
+        sastojci: [10,14,8]
+    },
   ];

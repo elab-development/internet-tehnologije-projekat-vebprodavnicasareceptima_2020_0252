@@ -10,7 +10,8 @@ import NutritionInfo from './components/NutritionInfo';
 
 import useKorpa from './hooks/useKorpa';
 import Recepti from './components/Recepti';
-import { kategorije , namirnice} from './data.js';
+import { kategorije , namirnice,recepti} from './data.js';
+import ReceptDetalji from './components/ReceptDetalji.jsx';
 
 
 
@@ -24,7 +25,9 @@ function App() {
   //fja za login
   const handleLogin = (email) => {
     setLoggedInUser(email);
+   
     return <Navigate to="/home" />;
+    
    
   };
 
@@ -100,12 +103,12 @@ function App() {
         element={loggedInUser ? (
         <>
         <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Recepti namirnice={namirnice} kriterijum={uslovPretrage} pretrazi={pretrazi} />
+        <Recepti namirnice={namirnice} kriterijum={uslovPretrage} pretrazi={pretrazi} recepti={recepti} />
         </>
         ) : (<Navigate to="/" />)}
         />
 
-
+<Route path="/recepti/:id" element={<ReceptDetalji recepti={recepti} namirnice={namirnice} dodajUKorpu = {dodajUKorpu}/>} />
       </Routes>
      
     
