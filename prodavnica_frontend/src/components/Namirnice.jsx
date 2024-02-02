@@ -3,15 +3,15 @@ import Namirnica from "./Namirnica";
 import "../style/namirnice.css";
 import Filter from "./Filter";
 
-function Namirnice({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
-  const postsPerPage = 3;
-  const [currentPage, setCurrentPage] = useState(0);
+    function Namirnice({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
+      const postsPerPage = 3;
+      const [currentPage, setCurrentPage] = useState(0);
 
-  const [allNamirnice, setAllNamirnice] = useState(namirnice);
-  useEffect(() => {
-    // Resetujemo na prvu stranicu svaki put kada se promeni kriterijum
-    setCurrentPage(0);
-  }, [kriterijum]); 
+      const [allNamirnice, setAllNamirnice] = useState(namirnice);
+      useEffect(() => {
+        // Resetujemo na prvu stranicu svaki put kada se promeni kriterijum
+        setCurrentPage(0);
+      }, [kriterijum]); 
 
   // Funkcija za filtriranje
   const filterNamirnice = () => {

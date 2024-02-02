@@ -26,7 +26,6 @@
 .naslov{
     margin-bottom: 0px;
 }
-
 .dugme_nutrition{
     background-color: #218618;
     margin-left: 5px;
@@ -38,7 +37,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+  
 }
 
 .dugme_nutrition:hover{
@@ -48,7 +48,8 @@
 
 
 #polje{
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+  
 }
 
 .nutrition_sadrzaj{

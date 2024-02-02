@@ -10,18 +10,12 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
   const postsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(0);
 
-  
-  
-  
-   
   const [allRecepti, setAllRecepti] = useState(recepti);
-
 
   useEffect(() => {
     // Resetujemo na prvu stranicu svaki put kada se promeni kriterijum
     setCurrentPage(0);
   }, [kriterijum]); 
-
 
   // Funkcija za filtriranje
   const filterRecepti = () => {
@@ -30,7 +24,6 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
           recept.naziv.toLowerCase().startsWith(kriterijum.toLowerCase())
         )
       : allRecepti;
-  
     
     return filtered;
   };
