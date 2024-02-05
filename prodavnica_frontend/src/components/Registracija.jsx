@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../style/registracija.css';
 import InputField from './InputField.jsx';
 import ReusableDugme from './ReusableDugme.jsx';
+import axios from 'axios';
 
 
 
@@ -24,29 +25,33 @@ const RegistracijaForm = ({onRegistracija}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  //staticki korisnici
-  const staticki = [
-    { email: 'luti@gmail.com', password: 'ninomi' },
-    { email: 'nina@gmail.com', password: 'ninomi' }
-  ];
+  axios.defaults.withCredentials = true;
   const handleRegistracija = () => {
-   
-    let dodatiKorisnici = JSON.parse(localStorage.getItem('users')) || [];
-    const sviKorisnici = [...staticki, ...dodatiKorisnici]; 
-    const postojeci = sviKorisnici.find(user => user.email === email);
-    if (postojeci) {
-      alert('Korisnik sa datim emailom već postoji.');
-    } else {
-        dodatiKorisnici  = [...dodatiKorisnici, { email, password }];
-        localStorage.setItem('users', JSON.stringify(dodatiKorisnici));
-     alert('Uspesno ste se registrovali!')
+    // Kreiramo objekat sa podacima za registraciju
+    const userData = {
+      Ime: ime,
+      Prezime: prezime,
+      Adresa: adresa,
+      Email: email,
+      password: password,
+    };
 
-      navigate('/');
-    }
+    // Slanje zahteva za registraciju korisnika
+    axios.post('http://127.0.0.1:8000/api/registracija', userData)
+      .then(response => {
+        // Uspesna registracija, opcionalno čuvanje tokena i navigacija
+       localStorage.setItem('token', response.data.Token);
+        alert('Uspesno ste se registrovali!');
+        navigate('/');
+      })
+      .catch(error => {
+        console.error('Error:', error.response.data);
+        alert(error.response.data['Greska pri registraciji:'] || 'Došlo je do greške prilikom registracije.');
+      });
   };
-
+  
   return (
-    <div class="scroll-bg">
+    <div className="scroll-bg">
     <div className="reg_forma">
       <div className="reg_forma_naslov">
         <h2>Registracija</h2>
