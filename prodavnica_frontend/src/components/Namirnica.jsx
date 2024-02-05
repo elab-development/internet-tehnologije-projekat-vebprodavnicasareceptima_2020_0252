@@ -4,9 +4,27 @@ import '../style/namirnica.css';
 
 
 
-function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu}) {
+function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user}) {
   
   
+
+  const handleDodajUKorpuClick = () => {
+    if (user==='neulogovan') {
+      alert("Morate se ulogovati da biste dodali namirnicu u korpu.");
+    } else {
+     
+      dodajUKorpu({
+        id: namirnicaId,
+        naziv,
+        cena,
+        velicina: velicina_pakovanja,
+        slika
+      });
+    }
+  };
+
+
+
     return (
       <div className="namirnica">
         <div className="namirnica_naziv">
@@ -22,9 +40,12 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
 
         <p className="namrinica_velicina_pakovanja">Veličina pakovanja: {velicina_pakovanja}</p>
 
-        <button className="namirnica_dugme" onClick={() => dodajUKorpu({
-          id: namirnicaId, naziv,cena,velicina: velicina_pakovanja,slika})}>
-        Dodaj u korpu
+        <button
+          className="namirnica_dugme"
+          onClick={handleDodajUKorpuClick}
+         
+        >
+          Dodaj u korpu
         </button>
        
         </div>

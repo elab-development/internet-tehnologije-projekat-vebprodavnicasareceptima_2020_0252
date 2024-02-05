@@ -4,8 +4,17 @@ import '../style/korpa.css';
 
 
 
-    function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu }) {
-  
+    function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user}) {
+    const handlePlacanje =() =>{
+
+if(user==='neulogovan'){
+    alert("Morate se ulogovati da biste izvršili plaćanje.");
+}else{
+
+
+}
+
+    }
 
   return (
     <div className="korpa">
@@ -43,7 +52,11 @@ import '../style/korpa.css';
         <div className="korpa-ukupno">
             <h3>Ukupno za plaćanje:</h3>
             <p>{korpa.reduce((total, stavka) => total + stavka.cena * stavka.kolicina, 0)} RSD</p>
-            <button className="dugme_placanje">Izvrši plaćanje</button>
+            <button className="dugme_placanje"
+            onClick={handlePlacanje}
+            >Izvrši plaćanje
+           
+            </button>
         </div>
     </div>
   );

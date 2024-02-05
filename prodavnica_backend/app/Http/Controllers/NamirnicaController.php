@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\namirnica;
 use Illuminate\Http\Request;
-use App\Models\kategorija_namirnice;
+
 use Validator;
 
 
@@ -42,7 +42,7 @@ class NamirnicaController extends Controller
             'opis' => 'required|string|max:255', 
             'cena' => 'required|numeric', 
             'velicina_pakovanja' => 'required|integer', 
-            'kategorija_namirnica_id'=> 'required|integer'
+        
 
         ]);
 
@@ -57,7 +57,7 @@ class NamirnicaController extends Controller
         $namirnica->opis = $request->opis;
         $namirnica->cena = $request->cena;
         $namirnica->velicina_pakovanja = $request->velicina_pakovanja;
-        $namirnica->kategorija_namirnica_id = $request->kategorija_namirnica_id;
+      
        
         $namirnica->save();
 
@@ -78,7 +78,7 @@ class NamirnicaController extends Controller
             'opis' => 'string|max:255', 
             'cena' => 'numeric', 
             'velicina_pakovanja' => 'integer', 
-            'kategorija_namirnica_id' => 'integer'
+        
         ]);
     
         if ($validator->fails()) {
@@ -129,24 +129,7 @@ class NamirnicaController extends Controller
 
 
 
-    public function namirnicePoKategoriji(Request $request)
-    {
-        $nazivKategorije = $request->input('naziv');
-
-        if (!$nazivKategorije) {
-            return response()->json(['message' => 'Nije unet naziv kategorije'], 400);
-        }
-
-        $kategorija = kategorija_namirnice::where('naziv', 'like', '%' . $nazivKategorije . '%')->first();
-        $idKat = $kategorija->id;
-        
-        $namirnice = namirnica::where('kategorija_namirnica_id', $kategorija->id)->get();
-        if ($namirnice->isEmpty()) {
-            return response()->json(['message' => 'Nema namirnica u kategoriji ' . $nazivKategorije], 404);
-        }
-
-        return response()->json($namirnice);
-    }
+   
 
     public function filtriraj(Request $request)
     {

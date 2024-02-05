@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
         
         
         $this->call(KorisnikSeeder::class);
-        $this->call(KategorijaNamirniceSeeder::class);
-        $this->call(KategorijaReceptSeeder::class);
+       
         $this->call(NamirnicaSeeder::class);
         $this->call(ReceptSeeder::class);
         $this->call(StavkaReceptSeeder::class);

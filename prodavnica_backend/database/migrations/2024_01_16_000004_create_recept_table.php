@@ -11,8 +11,7 @@ class CreateReceptTable extends Migration
             $table->id();
             $table->string('naziv');
             $table->text('tekst');
-            $table->unsignedBigInteger('kategorija_recepta_id');
-            $table->foreign('kategorija_recepta_id')->references('id')->on('kategorija_recept');
+          
             $table->string('slika_path')->nullable();
         });
     }

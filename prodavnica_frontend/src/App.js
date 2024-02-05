@@ -45,8 +45,11 @@ function App() {
 
 
   //fja za login
-  const handleLogin = (nz) => {
-    setLoggedInUser(nz);
+  const handleLogin = (user) => {
+    console.log(user)
+    setLoggedInUser(user);
+    console.log(loggedInUser)
+    
 
     return <Navigate to="/home" />;
     
@@ -94,7 +97,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} user = {loggedInUser} />
           </>) : (<Navigate to="/" />)}
         />
       <Route
@@ -106,7 +109,7 @@ function App() {
             element={loggedInUser ? (
             <>
             <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} />
+            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} user ={loggedInUser} />
             </>
              ) : (<Navigate to="/" /> )}
       />
@@ -135,7 +138,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu}/>
+        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu} user = {loggedInUser}/>
         </>
         ) : (<Navigate to="/" />)} 
         />

@@ -25,18 +25,8 @@ const LoginForm = ({ onLogin }) => {
         if (response.data['Token: ']) {
           localStorage.setItem('token', response.data['Token: ']);
           let user =response.data['Korisnik: '];
-          const korisnik = {
-            id: user.id,
-            ime: user.Ime,
-            prezime: user.Prezime,
-            adresa: user.Adresa,
-            email: user.Email,
-            broj_telefona: user.broj_telefona,
-            password: user.password,
-            uloga: user.uloga,
-          };
-          const nz = Object.entries(korisnik);
-          onLogin(nz);
+          console.log(user)
+          onLogin(user);
           navigate('home');
         } else {
           alert('Neuspešno logovanje: Proverite svoje kredencijale i pokušajte ponovo.');
@@ -52,6 +42,15 @@ const LoginForm = ({ onLogin }) => {
     navigate('/registracija');
   };
 
+
+  const handleBezNaloga =() =>{
+    const user = "neulogovan"
+
+    onLogin(user);
+    navigate('home');
+
+  };
+
   return (
     <div className="login_forma">
       <div className="login_forma_naslov"><h2>Login</h2></div>
@@ -60,6 +59,7 @@ const LoginForm = ({ onLogin }) => {
       <div>
         <ReusableDugme label="Login" onClick={handleLogin} />
         <ReusableDugme label="Registracija" onClick={handleNavigateToRegistracija} />
+        <ReusableDugme label="Nastavi bez registracije" onClick={handleBezNaloga} />
       </div>
     </div>
   );

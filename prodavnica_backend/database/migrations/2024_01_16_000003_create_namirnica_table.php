@@ -12,8 +12,8 @@ class CreateNamirnicaTable extends Migration
             $table->string('naziv');
             $table->text('opis');
             $table->double('cena');
-            $table->unsignedBigInteger('kategorija_namirnica_id');
-            $table->foreign('kategorija_namirnica_id')->references('id')->on('kategorija_namirnice');
+            
+            
             $table->string('slika_path')->nullable(); 
             
         });

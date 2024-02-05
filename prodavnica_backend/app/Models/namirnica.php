@@ -12,9 +12,7 @@ class namirnica extends Model
 
     use HasFactory;
 
-    public function kategorijaNamirnica(){
-        return $tnis->belongsTo(kategorija_namirnice::class);
-    }
+   
 
     public function stavkaRecepta(){
         return $this->hasMany(stavka_recept::class);
@@ -30,7 +28,7 @@ class namirnica extends Model
         'opis',
         'cena',
         'velicina_pakovanja',
-        'kategorija_namirnica_id',
+     
         'slika_path',
         
 

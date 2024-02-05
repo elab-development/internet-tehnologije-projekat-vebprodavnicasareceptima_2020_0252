@@ -6,7 +6,7 @@ use App\Models\recept;
 use App\Models\korpa;
 use App\Models\stavka_korpa;
 use Illuminate\Http\Request;
-use App\Models\kategorija_recept;
+
 use App\Models\namirnica;
 use PDF;
 use Validator;
@@ -28,7 +28,7 @@ class ReceptController extends Controller
         $validator = Validator::make($request->all(), [
             'naziv' => 'required|string|max:255',
             'tekst' => 'required|string|max:255',
-            'kategorija_recepta_id' => 'required|string|max:255',
+           
         ]);
 
         
@@ -40,7 +40,7 @@ class ReceptController extends Controller
         $recept = new recept();
         $recept->naziv = $request->naziv;
         $recept->tekst = $request->tekst;
-        $recept->kategorija_recepta_id = $request->kategorija_recepta_id;
+       
        
         $recept->save();
 
@@ -64,7 +64,7 @@ class ReceptController extends Controller
         $validator = Validator::make($request->all(), [
             'naziv' => 'string|max:255', 
             'tekst' => 'string|max:255',
-            'kategorija_recepta_id' => 'integer'
+            
 
         ]);
        
@@ -157,21 +157,6 @@ class ReceptController extends Controller
     
 
 
-    public function receptiPoKategoriji(Request $request)
-    {
-        $nazivKategorije = $request->input('naziv');
-        if (!$nazivKategorije) {
-            return response()->json(['message' => 'Nije unet naziv kategorije'], 400);
-        }
-        $kategorija = kategorija_recept::where('naziv', 'like', '%' . $nazivKategorije . '%')->first();
-    
-        $recepti = recept::where('kategorija_recepta_id', $kategorija->id)->get();
-        if ($recepti->isEmpty()) {
-            return response()->json(['message' => 'Nema recepata u kategoriji ' . $nazivKategorije], 404);
-        }
-
-        return response()->json($recepti);
-    }
 
 
     public function exportToPdf(Request $request)

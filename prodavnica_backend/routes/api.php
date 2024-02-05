@@ -24,10 +24,6 @@ use App\Http\Controllers\StavkaReceptController;
 */
 
 
-//KATEGORIJA NAMIRNICE
-
-Route::resource('/kategorijeNamirnica', KategorijaNamirniceController::class);
-Route::get('/kategorijaNamirnice/pronadjiPoNazivu',[KategorijaNamirniceController::class,'pronadjiPoNazivu']);
 
 
 //NAMIRNICA
@@ -77,20 +73,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//KATEGORIJA RECEPT
-Route::get('/kategorijaRecept', [KategorijaReceptController::class, 'index']);//radi
 
-Route::get('/kategorijaRecept/pronadji', [KategorijaReceptController::class, 'show']);//radi
 
-Route::post('/kategorijaRecept/sacuvaj', [KategorijaReceptController::class, 'store']);//radi
-
-Route::put('/kategorijaRecept/izmeni/{id}', [KategorijaReceptController::class, 'update']);//radi
-
-Route::delete('/kategorijaRecept/obrisi/{id}', [KategorijaReceptController::class, 'destroy']);//radi
-
-Route::get('/kategorijaRecept/naziv', [KategorijaReceptController::class, 'pronadjiPoNazivuKat']);//radi
-
-Route::get('/kategorijaRecept/namirnica', [KategorijaReceptController::class, 'pronadjiPoNamirnici']);//radi
 
 //KORPA
 Route::get('/korpa', [KorpaController::class, 'index']);

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Namirnica from './Namirnica';
 import '../style/receptdetalji.css';
 
-function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
+function ReceptDetalji({ recepti, namirnice,dodajUKorpu,user }) {
     let { id } = useParams();
 
     let odabraniRecept = recepti.find((recept) => recept.id === parseInt(id));
@@ -18,6 +18,11 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
     console.log(sastojci)
 
     const dodajSveUKorpu = () => {
+      if(user==='neulogovan'){
+        alert("Morate se ulogovati da biste dodali namirnicu u korpu.");
+
+
+      }else{
         sastojci.forEach(sastojak => {
           dodajUKorpu({
             id: sastojak.id,
@@ -27,6 +32,7 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
             slika: require(`../${sastojak.slika_path}`)
           });
         });
+      }
       };
   
     return (

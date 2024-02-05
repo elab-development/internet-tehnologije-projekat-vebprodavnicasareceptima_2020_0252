@@ -23,7 +23,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Sveže crvene jabuke',
                 'cena' => 90,
                 'velicina_pakovanja' => '1 kg',
-                'kategorija_namirnica_id' => 2 ,
+              
                 'slika_path'=>'assets/jabuke.jpg'
             ],
             [
@@ -31,7 +31,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Beli krompir za kuvanje',
                 'cena' => 109.99,
                 'velicina_pakovanja' => '1 kg',
-                'kategorija_namirnica_id' => 2,
+              
                 'slika_path'=>'assets/krompir.jpg'
             ],
             [
@@ -39,7 +39,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Krastavac dugi komad',
                 'cena' => 109.99,
                 'velicina_pakovanja' => '350g',
-                'kategorija_namirnica_id' => 2,
+               
                 'slika_path'=>'assets/jabuke.jpg' 
             ],
             [
@@ -47,7 +47,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Kisela pavlaka 20%',
                 'cena' => 92,
                 'velicina_pakovanja' => '180 g',
-                'kategorija_namirnica_id' => 4,
+             
                 'slika_path'=>'assets/jabuke.jpg' 
             ],
             [
@@ -55,7 +55,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Sveže mleko 2.8%',
                 'cena' => 154.99,
                 'velicina_pakovanja' => '1 l',
-                'kategorija_namirnica_id' => 4,
+             
                 'slika_path'=>'assets/mleko.jpg'
             ],
             [
@@ -63,7 +63,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Beli polumasni sir',
                 'cena' => 359.99,
                 'velicina_pakovanja' => '500 g',
-                'kategorija_namirnica_id' => 4,
+             
                 'slika_path'=>'assets/sir.jpg'
             ],  
             [
@@ -71,7 +71,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Ovsene pahuljice dr Oetker',
                 'cena' => 300,
                 'velicina_pakovanja' => '750 g',
-                'kategorija_namirnica_id' => 5,
+            
                 'slika_path'=>'assets/jabuke.jpg'
             ],
             [
@@ -79,7 +79,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Sveže bademovo mleko',
                 'cena' => 444.99,
                 'velicina_pakovanja' => '1 l',
-                'kategorija_namirnica_id' => 5,
+             
                 'slika_path'=>'assets/jabuke.jpg'
             ],
             [
@@ -87,7 +87,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Organski puter od kikirikija',
                 'cena' => 299.99,
                 'velicina_pakovanja' => '150g',
-                'kategorija_namirnica_id' => 5,
+           
                 'slika_path'=>'assets/jabuke.jpg'
             ],  
             [
@@ -95,7 +95,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Keks mlevena plazma',
                 'cena' => 254.99,
                 'velicina_pakovanja' => '300 g',
-                'kategorija_namirnica_id' => 6 ,
+              
                 'slika_path'=>'assets/jabuke.jpg'
             ],
             [
@@ -103,7 +103,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Cokolada za kuvanje',
                 'cena' => 232.99,
                 'velicina_pakovanja' => '200 g',
-                'kategorija_namirnica_id' => 6,
+             
                 'slika_path'=>'assets/cokolada.jpg'
             ],
             [
@@ -111,7 +111,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Čokoladni krem sa lešnikfom',
                 'cena' => 779.99,
                 'velicina_pakovanja' => '700 g',
-                'kategorija_namirnica_id' => 6,
+            
                 'slika_path'=>'assets/cokoladnikrem.jpg'
             ],
             [
@@ -119,7 +119,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Brašno tip 500',
                 'cena' => 50.99,
                 'velicina_pakovanja' => '1 kg',
-                'kategorija_namirnica_id' => 7,
+              
                 'slika_path'=>'assets/brasno.jpg'
             ],
             [
@@ -127,7 +127,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => '10 svežih jaja',
                 'cena' => 234.99,
                 'velicina_pakovanja' => '10 komada',
-                'kategorija_namirnica_id' => 7,
+             
                 'slika_path'=>'assets/jaja.jpg'
             ],
             
@@ -136,7 +136,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Suncokretovo ulje',
                 'cena' => 234.99,
                 'velicina_pakovanja' => '1 l',
-                'kategorija_namirnica_id' => 7,
+               
                 'slika_path'=>'assets/ulje.jpg'
             ],
             [
@@ -144,7 +144,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Kesica praška za pecivo',
                 'cena' => 52.99,
                 'velicina_pakovanja' => '10 g',
-                'kategorija_namirnica_id' => 7,
+               
                 'slika_path'=>'assets/prasak.jpg'
 
             ],
@@ -153,7 +153,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Beli kristal šećer',
                 'cena' => 114.99,
                 'velicina_pakovanja' => '1 kg',
-                'kategorija_namirnica_id' => 7,
+               
                 'slika_path'=>'assets/secer.jpg'
 
             ],
@@ -162,7 +162,7 @@ class NamirnicaSeeder extends Seeder
                 'opis' => 'Kuhinjska so kutija',
                 'cena' => 71.99,
                 'velicina_pakovanja' => '1 kg',
-                'kategorija_namirnica_id' => 7,
+      
                 'slika_path'=>'assets/so.jpg'
 
             ],

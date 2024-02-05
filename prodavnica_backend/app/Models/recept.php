@@ -12,10 +12,7 @@ class recept extends Model
 
     use HasFactory;
 
-    public function kategorijaRecept(){
-        return $this->belongsTo(kategorija_recept::class);
-    }
-
+    
     public function stavkaRecept(){
         return $this->hasMany(stavka_recept::class);
     }
@@ -24,7 +21,7 @@ class recept extends Model
         'naziv',
         'tekst',
             
-        'kategorija_recepta_id',    
+       
         'slika_path'
 
     ];
