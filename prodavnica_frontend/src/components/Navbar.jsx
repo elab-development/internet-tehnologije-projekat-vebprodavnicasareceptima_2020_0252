@@ -36,7 +36,7 @@ function Navbar({ loggedInUser, handleLogout }) {
               </div>
               <div className="ninin_div_2">
               <li className="nav_stavka nav_stavka-korisnik">
-                KORISNIK: {loggedInUser}{' '}
+                KORISNIK: {loggedInUser.email}{' '}
                 <button className="logout_dugme" onClick={handleLogoutClick}>
                   Logout
                 </button>

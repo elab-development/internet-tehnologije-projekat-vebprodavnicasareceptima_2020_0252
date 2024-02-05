@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\korisnik;
+use Illuminate\Support\Facades\Hash;
 
 class KorisnikSeeder extends Seeder
 {
@@ -15,7 +16,6 @@ class KorisnikSeeder extends Seeder
     public function run(): void
     {
 
-        korisnik::factory()->times(5)->create();
 
         DB::table('korisnik')->insert([
             [
@@ -24,7 +24,8 @@ class KorisnikSeeder extends Seeder
                 'Adresa' => 'Luke Vukalovica 7',
                 'Email' => 'milutin.mirkovic1.mm@gmail.com',
                 //'broj_telefona' => '0640854858',
-                'password' => 'ninomi'
+                'password' => Hash::make('ninomi'),
+                'uloga'=> 'admin'
             ],
             [
                 'Ime' => 'Nina',
@@ -32,7 +33,8 @@ class KorisnikSeeder extends Seeder
                 'Adresa' => 'Tršćanska 13',
                 'Email' => 'ninicomerovic2@gmail.com',
                 //'broj_telefona' => '0631201217',
-                'password' => 'ninomi'
+                'password' => Hash::make('ninomi'),
+                'uloga'=> 'admin'
             ],
         ]);
     }

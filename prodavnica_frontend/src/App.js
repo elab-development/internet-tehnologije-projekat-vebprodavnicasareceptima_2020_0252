@@ -45,9 +45,9 @@ function App() {
 
 
   //fja za login
-  const handleLogin = (email) => {
-    setLoggedInUser(email);
-   
+  const handleLogin = (nz) => {
+    setLoggedInUser(nz);
+
     return <Navigate to="/home" />;
     
    

@@ -5,7 +5,7 @@ import Filter from "./Filter";
 
     function Namirnice({ kriterijum, dodajUKorpu, pretrazi,namirnice }) {
       const postsPerPage = 3;
-
+      
      
       const [currentPage, setCurrentPage] = useState(0);
       

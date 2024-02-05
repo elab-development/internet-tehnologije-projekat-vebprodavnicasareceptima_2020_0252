@@ -9,21 +9,34 @@ const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [korisnik, setKorisnik] = useState([]);
 
-
+  
   const handleLogin = () => {
     // Kreiranje URL-a sa query params za email i password
     const params = new URLSearchParams({
       email: email,
       password: password
     });
-  
+ 
     axios.post(`http://127.0.0.1:8000/api/login?${params.toString()}`)
       .then(response => {
         // Obrada uspešnog odgovora
         if (response.data['Token: ']) {
           localStorage.setItem('token', response.data['Token: ']);
-          onLogin(email);
+          let user =response.data['Korisnik: '];
+          const korisnik = {
+            id: user.id,
+            ime: user.Ime,
+            prezime: user.Prezime,
+            adresa: user.Adresa,
+            email: user.Email,
+            broj_telefona: user.broj_telefona,
+            password: user.password,
+            uloga: user.uloga,
+          };
+          const nz = Object.entries(korisnik);
+          onLogin(nz);
           navigate('home');
         } else {
           alert('Neuspešno logovanje: Proverite svoje kredencijale i pokušajte ponovo.');

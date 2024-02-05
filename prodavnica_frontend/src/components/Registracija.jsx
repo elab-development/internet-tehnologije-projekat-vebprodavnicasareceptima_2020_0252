@@ -34,6 +34,7 @@ const RegistracijaForm = ({onRegistracija}) => {
       Adresa: adresa,
       Email: email,
       password: password,
+      uloga : "ulogovani",
     };
 
     // Slanje zahteva za registraciju korisnika

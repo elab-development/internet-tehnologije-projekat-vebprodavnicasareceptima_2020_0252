@@ -29,6 +29,7 @@ class korisnik extends Authenticatable
         'Email',
         'broj_telefona',
         'password',
+        'uloga',
     ];
 }
 

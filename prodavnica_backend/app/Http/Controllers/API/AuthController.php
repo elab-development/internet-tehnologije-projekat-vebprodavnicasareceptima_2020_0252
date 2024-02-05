@@ -21,7 +21,7 @@ class AuthController extends Controller
             'Adresa' => 'required|string',
             'Email' => 'required|email|unique:korisnik',
             'password' => 'required|string',
-            
+            'uloga'  => 'required|string',
         ]);
  
         if ($validator->fails()) {
@@ -34,6 +34,7 @@ class AuthController extends Controller
             'Adresa' => $request->Adresa,
             'Email' => $request->Email,
             'password' => Hash::make($request->password),
+            'uloga' => $request->uloga,
           
         ]);
  
@@ -71,7 +72,7 @@ class AuthController extends Controller
  
         $odgovor = [
             'Poruka' => 'Dobar dan!',
-            'Korisnik: ' => $user->Ime,
+            'Korisnik: ' => $user,
             'Token: ' => $token,
         ];
  
