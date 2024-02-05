@@ -27,6 +27,8 @@ const LoginForm = ({ onLogin }) => {
           let user =response.data['Korisnik: '];
           console.log(user)
           onLogin(user);
+         
+          onLogin(user);
           navigate('home');
         } else {
           alert('Neuspešno logovanje: Proverite svoje kredencijale i pokušajte ponovo.');

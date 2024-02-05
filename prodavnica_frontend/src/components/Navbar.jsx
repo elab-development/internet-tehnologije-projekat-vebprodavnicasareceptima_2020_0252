@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
-import '../style/navbar.css';
+import "../style/navbar.css";
 
 function Navbar({ loggedInUser, handleLogout }) {
   const navigate = useNavigate();
-
   const handleLogoutClick = () => {
     handleLogout();
-    navigate('/');
+    navigate("/");
   };
   const handleUloguj = () => {
     handleLogout();
@@ -45,20 +44,12 @@ function Navbar({ loggedInUser, handleLogout }) {
                
               </div>
               <div className="ninin_div_2">
-              {loggedInUser !== 'neulogovan' ? (
-                  <li className="nav_stavka nav_stavka-korisnik">
-                    {loggedInUser.Ime}{' '}
-                    <button className="logout_dugme" onClick={handleLogoutClick}>
-                      Logout
-                    </button>
-                  </li>
-                ) : (
-                  <li className="nav_stavka nav_stavka_link">
-                  <button className="logout_dugme" onClick={handleUloguj}>
-                      Login
-                    </button>
-                  </li>
-                )}
+              <li className="nav_stavka nav_stavka-korisnik">
+                KORISNIK: {loggedInUser.email}{' '}
+                <button className="logout_dugme" onClick={handleLogoutClick}>
+                  Logout
+                </button>
+              </li>
               </div>
             </>
           ) : (
@@ -72,4 +63,4 @@ function Navbar({ loggedInUser, handleLogout }) {
   );
 }
 
-export default Navbar;
+  export default Navbar;

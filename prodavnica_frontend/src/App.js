@@ -46,10 +46,7 @@ function App() {
 
   //fja za login
   const handleLogin = (user) => {
-    console.log(user)
     setLoggedInUser(user);
-    console.log(loggedInUser)
-    
 
     return <Navigate to="/home" />;
     
