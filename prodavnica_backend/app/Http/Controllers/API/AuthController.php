@@ -21,7 +21,7 @@ class AuthController extends Controller
             'Adresa' => 'required|string',
             'Email' => 'required|email|unique:korisnik',
             'password' => 'required|string',
-            'broj_telefona' => 'required|string',
+            
         ]);
  
         if ($validator->fails()) {
@@ -34,7 +34,7 @@ class AuthController extends Controller
             'Adresa' => $request->Adresa,
             'Email' => $request->Email,
             'password' => Hash::make($request->password),
-            'broj_telefona' => $request->broj_telefona
+          
         ]);
  
         $token = $user->createToken('TokenReg')->plainTextToken;
@@ -53,7 +53,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'Email' => 'required|Email',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
  
@@ -61,11 +61,11 @@ class AuthController extends Controller
             return response()->json(['Greska:', $validator->errors()]);
         }
  
-        if (!Auth::attempt($request->only('Email', 'password'))) {
+        if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json(['Greska pri logiovanju: ' => 'Pokusajte ponovo da se ulogujete!']);
         }
  
-        $user = korisnik::where('Email', $request['Email'])->firstOrFail();
+        $user = korisnik::where('email', $request['email'])->firstOrFail();
  
         $token = $user->createToken('TokenLogin')->plainTextToken;
  
