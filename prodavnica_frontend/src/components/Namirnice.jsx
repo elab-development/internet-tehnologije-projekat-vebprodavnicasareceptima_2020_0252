@@ -3,9 +3,13 @@ import Namirnica from "./Namirnica";
 import "../style/namirnice.css";
 import Filter from "./Filter";
 
-    function Namirnice({ kriterijum, dodajUKorpu, pretrazi, namirnice }) {
+    function Namirnice({ kriterijum, dodajUKorpu, pretrazi,namirnice }) {
       const postsPerPage = 3;
+
+     
       const [currentPage, setCurrentPage] = useState(0);
+      
+      
 
       const [allNamirnice, setAllNamirnice] = useState(namirnice);
       useEffect(() => {
@@ -42,18 +46,25 @@ import Filter from "./Filter";
       <div className="namirniceStranica">
         <div className="namirnice">
           {displayNamirnice.map((namirnice) => (
+            
+           
             <Namirnica
+            
               key={namirnice.id}
               namirnicaId={namirnice.id}
               naziv={namirnice.naziv}
-              slika={namirnice.slika}
+             
+              slika={require(`../${namirnice.slika_path}`)}
+
               opis={namirnice.opis}
               cena={namirnice.cena}
               velicina_pakovanja={namirnice.velicina_pakovanja}
               kategorijaId={namirnice.kategorijaId}
               dodajUKorpu={dodajUKorpu}
             />
-          ))}
+          
+            )
+          )}
         </div>
         <div className="pagination">
           {Array.from({

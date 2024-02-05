@@ -25,6 +25,7 @@ class recept extends Model
         'tekst',
             
         'kategorija_recepta_id',    
+        'slika_path'
 
     ];
 

@@ -17,10 +17,10 @@ class NamirnicaController extends Controller
     {
         
         $namirnice = namirnica::all();
-        //return response()->json($namirnice);
-        $namirnice = namirnica::paginate(10); // 10 users per page
+        return response()->json($namirnice);
+      //  $namirnice = namirnica::paginate(10); // 10 users per page
 
-        return view('paginacija', ['namirnice' => $namirnice]);
+        //return view('paginacija', ['namirnice' => $namirnice]);
     }
 
     public function show(Request $request)

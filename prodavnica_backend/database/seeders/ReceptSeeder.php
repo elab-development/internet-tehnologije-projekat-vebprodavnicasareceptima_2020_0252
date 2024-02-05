@@ -24,7 +24,8 @@ class ReceptSeeder extends Seeder
                 Savet: koristite samo teflonske tiganje jer ćete tako izbeći da Vam se palačinke zalepe za dno, tj. neće morati stalno da "podmazujete" tiganj.
                 Čim se ispeče jedna strana palačinke, okrenite je na drugu stranu i pecite isto koliko i prvu (otprilike oko 1 minut). Gotove palačinke izbacite na plitak tanjir i filujte.',
                
-                'kategorija_recepta_id' => 3
+                'kategorija_recepta_id' => 3,
+                'slika_path' =>'assets/palacinke.jpg'
             ],
             [
                 'naziv' => 'Krofne',
@@ -33,7 +34,8 @@ class ReceptSeeder extends Seeder
                 Čašom vaditi krofne, pa ostaviti da odstoje sa svake strane po 5 minuta. Za to vreme zagrejati ulje na umerenoj temperaturi. Pre prženja krofne još malo blago rastanjiti oklagijom i ostaviti da malo odmore.,
                 Kada se krofne stavljaju u ulje bitno je da ona strana koja je bila na stolu sada bude gore.,
                 Gotove krofne uvaljati u prah šećer i poslužiti tople :)',
-                'kategorija_recepta_id' => 3
+                'kategorija_recepta_id' => 3,
+                'slika_path' =>'assets/palacinke.jpg'
 
             ]
            

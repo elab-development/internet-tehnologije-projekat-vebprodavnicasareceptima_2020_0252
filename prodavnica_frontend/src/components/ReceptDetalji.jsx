@@ -6,15 +6,16 @@ import '../style/receptdetalji.css';
 
 function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
     let { id } = useParams();
+
     let odabraniRecept = recepti.find((recept) => recept.id === parseInt(id));
+    console.log(odabraniRecept)
   
     if (!odabraniRecept) {
       return <div>Recept nije pronađen.</div>;
     }
   
-    let sastojci = odabraniRecept.sastojci.map((idSastojka) =>
-      namirnice.find((namirnica) => namirnica.id === idSastojka)
-    );
+    let sastojci = odabraniRecept.stavka_recept.map((stavka) => stavka.namirnica ? stavka.namirnica : 'Nepoznata namirnica');
+    console.log(sastojci)
 
     const dodajSveUKorpu = () => {
         sastojci.forEach(sastojak => {
@@ -23,7 +24,7 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
             naziv: sastojak.naziv,
             cena: sastojak.cena,
             velicina: sastojak.velicina_pakovanja,
-            slika: sastojak.slika
+            slika: require(`../${sastojak.slika_path}`)
           });
         });
       };
@@ -51,7 +52,7 @@ function ReceptDetalji({ recepti, namirnice,dodajUKorpu }) {
                 key={sastojak.id}
                 namirnicaId={sastojak.id}
                 naziv={sastojak.naziv}
-                slika={sastojak.slika}
+                slika={require(`../${sastojak.slika_path}`)}
                 opis={sastojak.opis}
                 cena={sastojak.cena}
                 velicina_pakovanja={sastojak.velicina_pakovanja}

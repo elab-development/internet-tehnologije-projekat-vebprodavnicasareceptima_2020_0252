@@ -6,11 +6,18 @@ import '../style/recepti.css';
 import '../style/recept.css';
 
 
-function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
+function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice,recepti}) {
   const postsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(0);
 
+  
+
+
+
   const [allRecepti, setAllRecepti] = useState(recepti);
+
+
+
 
   useEffect(() => {
     // Resetujemo na prvu stranicu svaki put kada se promeni kriterijum
@@ -49,16 +56,18 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice ,recepti}) {
       <Filter pretrazi={pretrazi} />
       <div className="receptiStranica">
       <div className="recepti">
-  {displayRecepte.map((recept) => {
-    console.log("Rendering recept:", recept);
+  {displayRecepte.map((recepti) => {
+
+
     return (
       <Recept
-        key={recept.id}
-        receptId={recept.id}
-        naziv={recept.naziv}
-        slika={recept.slika}
+        key={recepti.id}
+        receptId={recepti.id}
+        naziv={recepti.naziv}
+        slika={require(`../${recepti.slika_path}`)}
         namirnice={namirnice}
-        sastojci={recept.sastojci}
+        sastojci = {recepti.stavka_recept}
+        //sastojci={recepti.sastojci}
         
        
       />

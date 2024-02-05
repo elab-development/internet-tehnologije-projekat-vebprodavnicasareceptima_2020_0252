@@ -31,6 +31,7 @@ class namirnica extends Model
         'cena',
         'velicina_pakovanja',
         'kategorija_namirnica_id',
+        'slika_path',
         
 
     ];

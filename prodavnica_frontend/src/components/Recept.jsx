@@ -4,13 +4,18 @@ import '../style/recept.css';
 
 function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
   
-  const naziviSastojaka = sastojci.map(idSastojka => {
-    const namirnica = namirnice.find(n => n.id === idSastojka);
-    return namirnica ? namirnica.naziv : 'Nepoznata namirnica';
-  });
+
+
+
+const naziviSastojaka = sastojci.map(stavka => {
+ 
+  const namirnica = namirnice.find(n => n.id === stavka.namirnica_id);
+  return namirnica ? namirnica.naziv : 'Nepoznata namirnica';
+});
   
   
   return (
+   
     <div className="recept">
       <div className="recept_naziv">
         <p>{naziv}</p>
@@ -19,10 +24,10 @@ function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
         {slika && (
           <img src={slika} alt="slika recepta" className="recept_slika" />
         )}
-        <div className="recept_sastojci">
+         <div className="recept_sastojci">
           <p>Sastojci:</p>
           <div className="sastojci_container">
-          <ul className="lista_bez_tackica">
+            <ul className="lista_bez_tackica">
             {naziviSastojaka.map((nazivSastojka, index) => (
               <li key={index}>{nazivSastojka}</li>
             ))}
@@ -37,3 +42,6 @@ function Recept({ receptId, naziv, tekst, slika, namirnice,sastojci }) {
 }
 
 export default Recept;
+ 
+
+ 

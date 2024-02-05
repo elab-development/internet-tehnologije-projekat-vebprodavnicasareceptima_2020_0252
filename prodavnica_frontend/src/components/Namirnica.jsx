@@ -6,7 +6,7 @@ import '../style/namirnica.css';
 
 function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu}) {
   
-
+  
     return (
       <div className="namirnica">
         <div className="namirnica_naziv">

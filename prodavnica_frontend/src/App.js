@@ -2,7 +2,7 @@ import { BrowserRouter,Route,Routes,Navigate } from 'react-router-dom';
 import LoginForm from './components/Login.jsx';
 import Navbar from './components/Navbar.jsx';
 import Namirnice from './components/Namirnice.jsx';
-import React, { useState,createContext } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import Korpa from './components/Korpa';
 import RegistracijaForm from './components/Registracija.jsx';
@@ -17,10 +17,32 @@ import ReceptDetalji from './components/ReceptDetalji.jsx';
 
 function App() {
 
+
   const [loggedInUser, setLoggedInUser] = useState(null);
  
   const { korpa, dodajUKorpu, ukloniIzKorpe, ocistiKorpu } = useKorpa();
   
+  const [receptiData, setReceptiData] = useState([]); // Promenjeno ime promenljive kako bi se izbegla konfuzija
+  const [namirniceData, setNamirniceData] = useState([]); // Promenjeno ime promenljive kako bi se izbegla konfuzija
+
+  useEffect(() => {
+    recepti() // Poziv funkcije za preuzimanje recepta
+      .then((data) => {
+        setReceptiData(data); // Postavljanje podataka u stanje komponente
+       
+      })
+      .catch((error) => console.error('Error setting recepti:', error));
+  }, []);
+
+  useEffect(() => {
+    namirnice() // Poziv funkcije za preuzimanje namirnica
+      .then((data) => {
+        setNamirniceData(data); // Postavljanje podataka u stanje komponente
+       
+      })
+      .catch((error) => console.error('Error setting namirnice:', error));
+  }, []);
+
 
   //fja za login
   const handleLogin = (email) => {
@@ -72,7 +94,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirnice}  />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} />
           </>) : (<Navigate to="/" />)}
         />
       <Route
@@ -93,7 +115,7 @@ function App() {
         path="/namirnice" 
         element={loggedInUser ? (
         <>
-        <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout}  />
         <NutritionInfo />
         </>
         ) : (<Navigate to="/" />)}
@@ -103,7 +125,7 @@ function App() {
         element={loggedInUser ? (
         <>
         <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Recepti namirnice={namirnice} kriterijum={uslovPretrage} pretrazi={pretrazi} recepti={recepti} />
+        <Recepti namirnice={namirniceData} kriterijum={uslovPretrage} pretrazi={pretrazi} recepti = {receptiData}/>
         </>
         ) : (<Navigate to="/" />)}
         />
@@ -113,7 +135,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <ReceptDetalji recepti={recepti} namirnice={namirnice} dodajUKorpu = {dodajUKorpu}/>
+        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu}/>
         </>
         ) : (<Navigate to="/" />)} 
         />
