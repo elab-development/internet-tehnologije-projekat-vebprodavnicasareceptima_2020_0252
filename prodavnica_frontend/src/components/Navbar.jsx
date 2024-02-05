@@ -1,15 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
-import '../style/navbar.css';
+import "../style/navbar.css";
 
 function Navbar({ loggedInUser, handleLogout }) {
-
-    const navigate = useNavigate();
-
-    const handleLogoutClick = () => {
-        handleLogout();
-        navigate('/');
+  const navigate = useNavigate();
+  const handleLogoutClick = () => {
+    handleLogout();
+    navigate("/");
   };
   return (
     <div>
@@ -20,27 +18,29 @@ function Navbar({ loggedInUser, handleLogout }) {
         <ul className="nav_lista">
           {loggedInUser ? (
             <>
-            <div className="ninin_div">
-            <li className="nav_stavka nav_stavka_link">
-                <Link to='/home'> NAMIRNICE </Link>
-              </li>
-              <li className="nav_stavka nav_stavka_link">
-                <Link to='/recepti'> RECEPTI </Link>
-              </li>
-            <li className="nav_stavka nav_stavka_link">
-                <Link to='/namirnice'> PODACI O NAMIRNICAMA </Link>
-              </li>
-              <li className="nav_stavka nav_stavka_link velika-stavka">
-                <Link to='/korpa'><TiShoppingCart /></Link>
-              </li>
+              <div className="ninin_div">
+                <li className="nav_stavka nav_stavka_link">
+                  <Link to="/home"> NAMIRNICE </Link>
+                </li>
+                <li className="nav_stavka nav_stavka_link">
+                  <Link to="/recepti"> RECEPTI </Link>
+                </li>
+                <li className="nav_stavka nav_stavka_link">
+                  <Link to="/namirnice"> PODACI O NAMIRNICAMA </Link>
+                </li>
+                <li className="nav_stavka nav_stavka_link velika-stavka">
+                  <Link to="/korpa">
+                    <TiShoppingCart />
+                  </Link>
+                </li>
               </div>
               <div className="ninin_div_2">
-              <li className="nav_stavka nav_stavka-korisnik">
-                KORISNIK: {loggedInUser.email}{' '}
-                <button className="logout_dugme" onClick={handleLogoutClick}>
-                  Logout
-                </button>
-              </li>
+                <li className="nav_stavka nav_stavka-korisnik">
+                  KORISNIK: {loggedInUser.Email}{" "}
+                  <button className="logout_dugme" onClick={handleLogoutClick}>
+                    Logout
+                  </button>
+                </li>
               </div>
             </>
           ) : (
@@ -52,7 +52,6 @@ function Navbar({ loggedInUser, handleLogout }) {
       </nav>
     </div>
   );
-
 }
 
-  export default Navbar;
+export default Navbar;
