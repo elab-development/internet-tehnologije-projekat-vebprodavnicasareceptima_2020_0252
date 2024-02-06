@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../style/placanje.css";
 
 function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
+   
 
 
 
