@@ -25,7 +25,8 @@ class AuthController extends Controller
         ]);
  
         if ($validator->fails()) {
-            return response()->json(['Greska pri registraciji:', $validator->errors()]);
+            // Ako validacija ne prođe, vrati grešku sa odgovarajućim status kodom
+            return response()->json($validator->errors(), 422); // 422 Unprocessable Entity
         }
  
         $user = korisnik::create([
@@ -37,13 +38,17 @@ class AuthController extends Controller
             'uloga' => $request->uloga,
           
         ]);
+        if (!$user) {
+         
+            return response()->json(['error' => 'Korisnik nije kreiran.'], 500); // 500 Internal Server Error
+        }
  
         $token = $user->createToken('TokenReg')->plainTextToken;
  
         $odgovor = [
             'Poruka' => 'Uspesna registracija korisnika!',
-            'Korisnik: ' => $user,
-            'Token: ' => $token,
+            'Korisnik' => $user,
+            'Token' => $token,
             'Token tip:' => 'Bearer',
         ];
  

@@ -43,18 +43,39 @@ const RegistracijaForm = ({onRegistracija}) => {
       uloga : "ulogovani",
     };
 
-    // Slanje zahteva za registraciju korisnika
     axios.post('http://127.0.0.1:8000/api/registracija', userData)
-      .then(response => {
-        // Uspesna registracija, opcionalno čuvanje tokena i navigacija
-       localStorage.setItem('token', response.data.Token);
-        alert('Uspesno ste se registrovali!');
-        navigate('/');
-      })
-      .catch(error => {
-        console.error('Error:', error.response.data);
-        alert(error.response.data['Greska pri registraciji:'] || 'Došlo je do greške prilikom registracije.');
-      });
+  .then(response => {
+    // Proveri da li je odgovor uspešan
+    if (response.data.Korisnik && response.data.Token) {
+      // Uspesna registracija, čuvanje tokena i navigacija
+      localStorage.setItem('token', response.data.Token);
+      alert('Uspesno ste se registrovali!');
+      navigate('/');
+    } else {
+      throw new Error('Nepotpun odgovor sa servera.');
+    }
+  })
+  .catch(error => {
+    // Obrada grešaka sa servera
+    if (error.response) {
+      if (error.response.status === 422) {
+        // Greška u validaciji
+        alert(Object.values(error.response.data)[0]);
+      } else if (error.response.status === 500) {
+        // Greška na serveru
+        alert(error.response.data.error || 'Došlo je do greške prilikom registracije.');
+      } else {
+        // Drugi status kodovi
+        alert('Došlo je do greške prilikom registracije.');
+      }
+    } else if (error.request) {
+      // Zahtev je poslat, ali nema odgovora
+      alert('Nema odgovora od servera.');
+    } else {
+      // Nešto je pošlo po zlu prilikom kreiranja zahteva
+      alert('Greška prilikom slanja zahteva.');
+    }
+  });
   };
   
   return (
