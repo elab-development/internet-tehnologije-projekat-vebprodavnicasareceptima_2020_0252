@@ -68,7 +68,7 @@ function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user }) {
             src={require(`../${odabraniRecept.slika_path}`)}
             alt={odabraniRecept.naziv}
           />
-          <button onClick={sacuvajUdPDF}>Sačuvaj u PDF-u</button>
+          <button className="pdf_dugme" onClick={sacuvajUdPDF}>Sačuvaj u PDF-u</button>
         </div>
         <div className="recept_detalji_desnideo">
           <p>{odabraniRecept.tekst}</p>

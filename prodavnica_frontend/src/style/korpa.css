@@ -92,6 +92,9 @@
     position: absolute;
     right: 10px;
     bottom: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
   
   .korpa-ukupno h3 {
@@ -119,4 +122,13 @@
   .dugme_placanje:hover{
     background-color: rgb(99, 158, 91);
     color: black;
+}
+
+.combic{
+  background-color: rgb(99, 158, 91);
+  width: 150px;
+  height: 40px;
+  border: 1pc;
+  border-radius: 25px;
+  margin-bottom: 10px;
 }

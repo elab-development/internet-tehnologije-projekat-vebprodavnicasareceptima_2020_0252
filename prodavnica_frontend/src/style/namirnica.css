@@ -1,16 +1,20 @@
 .namirnica {
     padding: 24px; 
-    margin: 16px 0;
     border: 4px solid #218618;
     border-radius: 15px;
     background-color:white;
     color: black;
-    font-weight: bold;
+    /*font-weight: bold;*/
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 400px;
     width: 300px;
+    margin-bottom: 10px;
+  }
+
+  .namirnica_naziv{
+    font-weight: bold;
   }
 
   .namirnica_opis {
@@ -41,9 +45,29 @@
   transition: background-color 0.3s ease;
   width: 150px;
   height: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .namirnica_dugme:hover{
   background-color: rgb(99, 158, 91);
+  color: black;
+}
+
+.namirnica_obrisi{
+  background-color: #f24138;
+  margin-left: 5px;
+  color: black;
+  border: 1pc;
+  border-radius: 25px;
+  padding: 12px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.namirnica_obrisi:hover{
+  background-color: rgb(137, 25, 24);
   color: black;
 }

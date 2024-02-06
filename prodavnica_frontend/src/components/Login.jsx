@@ -59,9 +59,9 @@ const LoginForm = ({ onLogin }) => {
       <InputField label="Email" id="Email" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <InputField label="Lozinka" id="password" type="password" placeholder="Lozinka" value={password} onChange={(e) => setPassword(e.target.value)} />
       <div>
-        <ReusableDugme label="Login" onClick={handleLogin} />
-        <ReusableDugme label="Registracija" onClick={handleNavigateToRegistracija} />
-        <ReusableDugme label="Nastavi bez registracije" onClick={handleBezNaloga} />
+        <ReusableDugme  label="Login" onClick={handleLogin} />
+        <ReusableDugme  label="Registracija" onClick={handleNavigateToRegistracija} />
+        <ReusableDugme  label="Nastavi bez registracije" onClick={handleBezNaloga} />
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import React from 'react';
+import '../style/input.css';
 
 const InputField = ({ label, id, type, placeholder, value, onChange }) => {
   return (
-    <div className="input-field">
+    <div >
       <label htmlFor={id}>{label}:</label>
       <br />
-      <input
+      <input className="input-field"
         type={type}
         id={id}
         placeholder={placeholder}

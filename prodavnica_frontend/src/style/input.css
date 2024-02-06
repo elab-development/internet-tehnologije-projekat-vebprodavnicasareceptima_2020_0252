@@ -1,16 +1,9 @@
-.pretraga{
-    margin-top: 20px;
-}
-
-.dugme_pretraga{
-    margin-left: 10px;
-}
-
-.polje_pretraga{
+.input-field{
     border-radius: 7px;
     border: 1pc;
     background-color: rgb(99, 158, 91);
     height: 15px;
     width: 250px;
     padding: 10px;
+    margin-bottom: 10px;
 }
