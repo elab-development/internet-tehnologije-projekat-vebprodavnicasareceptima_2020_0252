@@ -21,6 +21,7 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         velicina: velicina_pakovanja,
         slika
       });
+      alert("Uspešno dodato u korpu.");
     }
   };
 
@@ -54,22 +55,16 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
 
         <p className="namrinica_velicina_pakovanja">Veličina pakovanja: {velicina_pakovanja}</p>
 
-        <button
-          className="namirnica_dugme"
-          onClick={handleDodajUKorpuClick}
-         
-        >
+        <button className="namirnica_dugme" onClick={handleDodajUKorpuClick}>
           Dodaj u korpu
         </button>
- 
         {
-  user.uloga === 'admin' && (
-    <button onClick={handleObrisiClick} className="namirnica_dugme">
-      Obriši
-    </button>
-  )
-}
-       
+          user.uloga === 'admin' && (
+          <button onClick={handleObrisiClick} className="namirnica_obrisi">
+          Obriši
+          </button>
+        )
+      }
         </div>
       </div>
     );

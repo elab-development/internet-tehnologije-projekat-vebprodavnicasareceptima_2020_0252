@@ -12,7 +12,7 @@
     background-color: white;
 }
 
-.login_forma_naslov{
+/*.login_forma_naslov{
     margin-top: 20px;
     margin-bottom: 60px
 }
@@ -23,9 +23,9 @@
 
 .login_forma_lozinka{
     margin-bottom: 40px;
-}
+}*/
 
-.login_dugme{
+/*.dugme{
     background-color: #218618;
     margin-left: 5px;
     color: black;
@@ -37,15 +37,20 @@
     transition: background-color 0.3s ease;
     width: 150px;
     height: 40px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
-.login_dugme:hover{
+.dugme:hover{
     background-color: rgb(99, 158, 91);
     color: black;
-}
+}*/
 
-input{
+
+
+/*input{
     border-radius: 7px;
     border: 1pc;
     background-color: rgb(99, 158, 91);
@@ -54,4 +59,8 @@ input{
     margin-top: 10px;
 }
 
+#password{
+    margin-bottom: 40px;
+}
+*/
 

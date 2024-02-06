@@ -5,7 +5,7 @@ import '../style/filter.css';
   function Filter({pretrazi}){
     return(  
     <div className="pretraga">
-          <input type="text" id="kriterijum" placeholder="Pretrazi" 
+          <input type="text" className='polje_pretraga' id="kriterijum" placeholder="Pretrazi" 
             name="search" onChange={()=>pretrazi(document.getElementById('kriterijum').value)}/>
             <button type="submit" className='dugme_pretraga'  ><FaSearch /></button>
       </div>

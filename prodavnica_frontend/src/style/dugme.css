@@ -1,0 +1,22 @@
+.dugme{
+    background-color: #218618;
+    margin-left: 5px;
+    color: black;
+    border: 1pc;
+    border-radius: 25px;
+    padding: 12px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 40px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center; /* Centriranje horizontalno */
+    align-items: center;
+}
+
+.dugme:hover{
+    background-color: rgb(99, 158, 91);
+    color: black;
+}
