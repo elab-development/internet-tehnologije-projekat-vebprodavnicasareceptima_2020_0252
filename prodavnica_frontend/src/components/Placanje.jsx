@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import "../style/placanje.css";
 
-function Placanje({ korpa, user,ukupno }) {
+function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti }) {
 console.log(ukupno)
 
     function kreirajNizIdIzKorpe(korpa) {
@@ -69,26 +70,26 @@ console.log(ukupno)
 
   return (
     <div className="placanje">
+      <div className="placanje_user_info">
       <h2>Detalji Plaćanja</h2>
       <p>Ime: {user.Ime}</p>
       <p>Prezime: {user.Prezime}</p>
       <p>Email: {user.Email}</p>
-     
       <p>Adresa: {user.Adresa}</p>
-      <p>Ukupna cena: {korpa.ukupna_cena}</p>
-      
-      <div>
+      </div>
+      <p className='cena'>Ukupna cena: {valuta === 'RSD' ? ukupno : ukupnoUValuti.toFixed(2)} {valuta}</p>
+      <div className='promeni_adresu'>
         <label htmlFor="novaAdresa">Promeni adresu:</label>
-        <input
+        <input className='adresa_polje'
           type="text"
           id="novaAdresa"
           value={adresa}
           onChange={handleAdresaChange}
         />
-        <button onClick={handleAdresaUpdate}>Ažuriraj adresu</button>
+        <button className='dugme_adresa' onClick={handleAdresaUpdate}>Ažuriraj adresu</button>
       </div>
 
-      <button onClick={handleTransakcija}>Potvrdi</button>
+      <button className='dugme_transakcija' onClick={handleTransakcija}>Potvrdi</button>
       
       
       {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}

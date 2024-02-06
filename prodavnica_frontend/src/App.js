@@ -21,6 +21,10 @@ function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [ukupno, setUkupno] = useState(0);
+  const [ukupnoUValuti, setUkupnoUValuti] = useState(0);
+  const [valuta, setValuta] = useState("");
+ 
+
  
   const { korpa, dodajUKorpu, ukloniIzKorpe, ocistiKorpu } = useKorpa();
   
@@ -54,8 +58,10 @@ function App() {
     
    
   };
-  const promeniUkupno = (ukupno) => {
+  const promeniUkupno = (valuta,ukupno,ukupnoUValuti) => {
     setUkupno(ukupno);
+    setValuta(valuta);
+    setUkupnoUValuti(ukupnoUValuti);
   };
 
   //fja za logout
@@ -160,7 +166,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Placanje korpa={korpa}  user = {loggedInUser} ukupno={ukupno}/>
+        <Placanje korpa={korpa}  user = {loggedInUser} ukupno={ukupno} valuta={valuta} ukupnoUValuti={ukupnoUValuti}/>
         </>
         ) : (<Navigate to="/" />)} 
         />

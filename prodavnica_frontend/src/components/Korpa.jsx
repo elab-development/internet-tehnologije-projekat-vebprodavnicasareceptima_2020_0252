@@ -13,9 +13,14 @@ function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user,promeniUkupno }) {
     if (user === "neulogovan") {
       alert("Morate se ulogovati da biste izvršili plaćanje.");
     } else {
-promeniUkupno(totalInSelectedCurrency);
-  navigate('Placanje');
-     
+      if(selectedCurrency==="RSD"){
+        promeniUkupno(selectedCurrency,totalInSelectedCurrency);
+        navigate('Placanje');
+      }else{
+        const ukupno = totalInSelectedCurrency * exchangeRates.EURtoRSD;
+        promeniUkupno(selectedCurrency,ukupno,totalInSelectedCurrency);
+        navigate('Placanje');
+      }
     }
   };
 
