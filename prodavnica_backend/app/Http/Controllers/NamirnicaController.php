@@ -41,7 +41,7 @@ class NamirnicaController extends Controller
             'naziv' => 'required|string|max:255', 
             'opis' => 'required|string|max:255', 
             'cena' => 'required|numeric', 
-            'velicina_pakovanja' => 'required|integer', 
+            'velicina_pakovanja' => 'required|string', 
         
 
         ]);
@@ -57,6 +57,7 @@ class NamirnicaController extends Controller
         $namirnica->opis = $request->opis;
         $namirnica->cena = $request->cena;
         $namirnica->velicina_pakovanja = $request->velicina_pakovanja;
+        $namirnica->slika_path = "";
       
        
         $namirnica->save();

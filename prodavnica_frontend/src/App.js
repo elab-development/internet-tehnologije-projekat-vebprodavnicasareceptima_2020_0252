@@ -10,6 +10,7 @@ import NutritionInfo from './components/NutritionInfo';
 
 import useKorpa from './hooks/useKorpa';
 import Recepti from './components/Recepti';
+import DodajNamirnicu from './components/DodajNamirnicu.jsx';
 import { kategorije , namirnice,recepti} from './data.js';
 import ReceptDetalji from './components/ReceptDetalji.jsx';
 
@@ -139,6 +140,18 @@ function App() {
         </>
         ) : (<Navigate to="/" />)} 
         />
+
+<Route 
+        path="dodaj-namirnicu"
+        element={loggedInUser ? (
+          <>
+          <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <DodajNamirnicu/>
+        </>
+        ) : (<Navigate to="/" />)} 
+        />
+
+
       </Routes>
      
     

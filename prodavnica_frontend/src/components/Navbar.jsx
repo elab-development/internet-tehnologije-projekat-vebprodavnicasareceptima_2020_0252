@@ -44,12 +44,20 @@ function Navbar({ loggedInUser, handleLogout }) {
                
               </div>
               <div className="ninin_div_2">
-              <li className="nav_stavka nav_stavka-korisnik">
-                KORISNIK: {loggedInUser.email}{' '}
-                <button className="logout_dugme" onClick={handleLogoutClick}>
-                  Logout
-                </button>
-              </li>
+              {loggedInUser !== 'neulogovan' ? (
+                  <li className="nav_stavka nav_stavka-korisnik">
+                    {loggedInUser.Ime}{' '}
+                    <button className="logout_dugme" onClick={handleLogoutClick}>
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <li className="nav_stavka nav_stavka_link">
+                   <button className="logout_dugme" onClick={handleUloguj}>
+                      Login
+                    </button>
+                  </li>
+                )}
               </div>
             </>
           ) : (
