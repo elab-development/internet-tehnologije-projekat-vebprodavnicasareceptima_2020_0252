@@ -5,6 +5,9 @@ import "../style/placanje.css";
 function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti }) {
 console.log(ukupno)
 
+
+    const [transakcijaDetalji, setTransakcijaDetalji] = useState(null);
+
     function kreirajNizIdIzKorpe(korpa) {
         let nizId = [];
         korpa.forEach(stavka => {
@@ -57,6 +60,7 @@ console.log(ukupno)
       .then(response => {
         // Uspesna transakcija
         console.log(response.data);
+        setTransakcijaDetalji(response.data.detalji);
         alert('Transakcija uspešno procesirana!');
         // Ovde možete očistiti stanje korpe ili navigirati korisnika na drugu stranicu
       })
@@ -91,7 +95,13 @@ console.log(ukupno)
 
       <button className='dugme_transakcija' onClick={handleTransakcija}>Potvrdi</button>
       
-      
+      {transakcijaDetalji && (
+        <div>
+          <h3>Detalji transakcije:</h3>
+          <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
+          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena}</p>
+        </div>
+      )}
       {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}
     </div>
   );
