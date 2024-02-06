@@ -9,7 +9,7 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
 
 
     const [transakcijaDetalji, setTransakcijaDetalji] = useState(null);
-    const [poklapajuciRecept, setPoklapajuciRecept] = useState(null);
+    const [poklapajuciRecept, setPoklapajuciRecept] = useState([]);
 
 
     function kreirajNizIdIzKorpe(korpa) {
@@ -100,15 +100,15 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
           brojPoklapanja++;
         }
       });
-  
+      console.log(brojPoklapanja);
       if (brojPoklapanja > najvisePoklapanja) {
         najvisePoklapanja = brojPoklapanja;
         receptSaNajvisePoklapanja = recept;
+        console.log(recept);
       }
     });
- 
+    console.log(receptSaNajvisePoklapanja);
     setPoklapajuciRecept(receptSaNajvisePoklapanja);
-    
   };
   
   useEffect(() => {
@@ -119,10 +119,32 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
     }
   }, [poklapajuciRecept]);
   
+
+  const sacuvajUdPDF = () => {
+    if (user === "neulogovan") {
+      alert("Morate se ulogovati da biste sačuvali recept u PDF-u.");
+    } else {
+      axios
+        .get(`http://127.0.0.1:8000/api/recepti/pdf?id=${poklapajuciRecept.id}`, {
+          responseType: "blob",
+        })
+        .then((response) => {
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", `recept-${poklapajuciRecept.id}.pdf`);
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((error) => {
+          console.error("Greška prilikom generisanja PDF-a:", error);
+        });
+    }
+  };
   
 
   return (
-    <div className='veliki_div_transakcija'>
+    <div className='najveci_div'>
     <div className="placanje">
       <div className="placanje_user_info">
       <h2>Detalji Plaćanja</h2>
@@ -146,14 +168,18 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
       <button className='dugme_transakcija' onClick={handleTransakcija}>Potvrdi</button>
     </div>
     {transakcijaDetalji && (
-        <div className='detalji_transakcija'>
-          <h3>Detalji transakcije:</h3>
-          <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
-          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena} RSD</p>
-            <p>{poklapajuciRecept.naziv}</p>
+    <div className='recept_nmg'>
+        <h2 className='naslovcic'>Naš predlog recepta:</h2>
+       {poklapajuciRecept ? 
+       <div className='info_o_receptu'>
+        <p className='receptic_naziv'>{poklapajuciRecept.naziv}</p>
+        <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
+        <p className='receptic_tekstic'>{poklapajuciRecept.tekst}</p>
+        <button className="pdf_dugme" onClick={sacuvajUdPDF}>Sačuvaj u PDF-u</button>
         </div>
-      )}
-      {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}
+         : <p>Nema predloga recepta</p>} 
+    </div>
+    )}
     </div>
   );
 }

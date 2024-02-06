@@ -1,11 +1,12 @@
-.veliki_div_transakcija{
+.najveci_div{
   margin: auto;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 60px;
+  align-items: center;
 }
+
+
 
 .placanje {
   padding: 24px;
@@ -18,7 +19,8 @@
   align-items: center;
   height: 450px;
   width: 300px;
-  margin-right: 100px;
+  margin: auto;
+  margin-top: 30px;
 }
 
 .detalji_transakcija{
@@ -87,3 +89,43 @@
   background-color: rgb(99, 158, 91);
   color: black;
 }
+
+.recept_nmg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.info_o_receptu{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 4px solid #218618;
+  border-radius: 15px;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+  width: 800px;
+  padding: 20px;
+}
+
+.naslovcic{
+  color: white;
+  background-color: #218618;
+  border-radius: 30px;
+  border: 1pc;
+  padding: 15px;
+  width: 400px;
+}
+
+.receptic_naziv{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*.receptic_tekstic{
+  width: 200px;
+}*/
