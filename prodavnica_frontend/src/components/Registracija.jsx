@@ -5,7 +5,7 @@ import '../style/registracija.css';
 import InputField from './InputField.jsx';
 import ReusableDugme from './ReusableDugme.jsx';
 import axios from 'axios';
-
+import DOMPurify from 'dompurify';
 
 
 
@@ -27,13 +27,19 @@ const RegistracijaForm = ({onRegistracija}) => {
 
   axios.defaults.withCredentials = true;
   const handleRegistracija = () => {
+
+    const cleanIme = DOMPurify.sanitize(ime);
+    const cleanPrezime = DOMPurify.sanitize(prezime);
+    const cleanAdresa = DOMPurify.sanitize(adresa);
+    const cleanEmail = DOMPurify.sanitize(email);
+    const cleanPassword = DOMPurify.sanitize(password);
     // Kreiramo objekat sa podacima za registraciju
     const userData = {
-      Ime: ime,
-      Prezime: prezime,
-      Adresa: adresa,
-      Email: email,
-      password: password,
+      Ime: cleanIme,
+      Prezime: cleanPrezime,
+      Adresa: cleanAdresa,
+      Email: cleanEmail,
+      password: cleanPassword,
       uloga : "ulogovani",
     };
 
