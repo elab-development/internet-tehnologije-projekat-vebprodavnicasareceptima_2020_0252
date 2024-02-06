@@ -36,6 +36,7 @@
     background: #fff; /* ili neka druga boja pozadine */
     border-radius: 8px; /* opcionalno zaobljavanje ivica */
     position: relative;
+    min-height: 200px;
   }
 
   

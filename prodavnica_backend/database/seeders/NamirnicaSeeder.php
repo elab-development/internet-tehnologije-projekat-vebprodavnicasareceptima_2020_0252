@@ -40,7 +40,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 109.99,
                 'velicina_pakovanja' => '350g',
                
-                'slika_path'=>'assets/jabuke.jpg' 
+                'slika_path'=>'assets/krastavac.jpg' 
             ],
             [
                 'naziv' => 'Pavlaka',
@@ -48,7 +48,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 92,
                 'velicina_pakovanja' => '180 g',
              
-                'slika_path'=>'assets/jabuke.jpg' 
+                'slika_path'=>'assets/pavlaka.jpg' 
             ],
             [
                 'naziv' => 'Mleko',
@@ -72,7 +72,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 300,
                 'velicina_pakovanja' => '750 g',
             
-                'slika_path'=>'assets/jabuke.jpg'
+                'slika_path'=>'assets/ovsene.jpg'
             ],
             [
                 'naziv' => 'Bademovo mleko',
@@ -80,7 +80,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 444.99,
                 'velicina_pakovanja' => '1 l',
              
-                'slika_path'=>'assets/jabuke.jpg'
+                'slika_path'=>'assets/bademovo.jpg'
             ],
             [
                 'naziv' => 'Puter od kikirikija',
@@ -88,7 +88,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 299.99,
                 'velicina_pakovanja' => '150g',
            
-                'slika_path'=>'assets/jabuke.jpg'
+                'slika_path'=>'assets/kikiriki.jpg'
             ],  
             [
                 'naziv' => 'Mlevena plazma',
@@ -96,7 +96,7 @@ class NamirnicaSeeder extends Seeder
                 'cena' => 254.99,
                 'velicina_pakovanja' => '300 g',
               
-                'slika_path'=>'assets/jabuke.jpg'
+                'slika_path'=>'assets/mlevena.jpg'
             ],
             [
                 'naziv' => 'Cokolada za kuvanje',

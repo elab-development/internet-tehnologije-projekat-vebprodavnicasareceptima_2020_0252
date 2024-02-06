@@ -35,7 +35,7 @@ class ReceptSeeder extends Seeder
                 Kada se krofne stavljaju u ulje bitno je da ona strana koja je bila na stolu sada bude gore.,
                 Gotove krofne uvaljati u prah šećer i poslužiti tople :)',
               
-                'slika_path' =>'assets/palacinke.jpg'
+                'slika_path' =>'assets/krofne.jpg'
 
             ]
            
