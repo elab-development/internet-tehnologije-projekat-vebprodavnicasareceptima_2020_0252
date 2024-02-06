@@ -13,13 +13,14 @@ import Recepti from './components/Recepti';
 import DodajNamirnicu from './components/DodajNamirnicu.jsx';
 import { kategorije , namirnice,recepti} from './data.js';
 import ReceptDetalji from './components/ReceptDetalji.jsx';
-
+import Placanje from './components/Placanje.jsx';
 
 
 function App() {
 
 
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [ukupno, setUkupno] = useState(0);
  
   const { korpa, dodajUKorpu, ukloniIzKorpe, ocistiKorpu } = useKorpa();
   
@@ -52,6 +53,9 @@ function App() {
     return <Navigate to="/home" />;
     
    
+  };
+  const promeniUkupno = (ukupno) => {
+    setUkupno(ukupno);
   };
 
   //fja za logout
@@ -107,7 +111,7 @@ function App() {
             element={loggedInUser ? (
             <>
             <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} user ={loggedInUser} />
+            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} user ={loggedInUser}  promeniUkupno ={promeniUkupno}/>
             </>
              ) : (<Navigate to="/" /> )}
       />
@@ -151,6 +155,15 @@ function App() {
         ) : (<Navigate to="/" />)} 
         />
 
+<Route 
+        path="korpa/placanje"
+        element={loggedInUser ? (
+          <>
+          <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <Placanje korpa={korpa}  user = {loggedInUser} ukupno={ukupno}/>
+        </>
+        ) : (<Navigate to="/" />)} 
+        />
 
       </Routes>
      

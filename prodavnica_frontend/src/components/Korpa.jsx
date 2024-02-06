@@ -1,13 +1,21 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
 import "../style/korpa.css";
 
-function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user }) {
+function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user,promeniUkupno }) {
+
+  const navigate = useNavigate();
+  console.log(korpa)
+
+
   const handlePlacanje = () => {
     if (user === "neulogovan") {
       alert("Morate se ulogovati da biste izvršili plaćanje.");
     } else {
+promeniUkupno(totalInSelectedCurrency);
+  navigate('Placanje');
+     
     }
   };
 
@@ -137,12 +145,4 @@ function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user }) {
 }
 
 export default Korpa;
-/*<div className="korpa-ukupno">
-            <h3>Ukupno za plaćanje:</h3>
-            <p>{korpa.reduce((total, stavka) => total + stavka.cena * stavka.kolicina, 0)} RSD</p>
-            <button className="dugme_placanje"
-            onClick={handlePlacanje}
-            >Izvrši plaćanje
-           
-            </button>
-        </div>*/
+

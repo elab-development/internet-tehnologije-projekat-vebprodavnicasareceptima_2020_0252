@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\korpa;
+use App\Models\stavka_korpa;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -116,7 +117,43 @@ class KorpaController extends Controller
 
 
     
-
+    public function obradiKorpu(Request $request) {
+        DB::beginTransaction();
+        
+        try {
+            // Pretpostavljamo da $request->korisnikId i $request->ukupnaCena sadrže potrebne podatke
+            $korisnikId = $request->korisnikId;
+            $ukupnaCena = $request->ukupnaCena;
+            $stavkeNiz = $request->stavkeNiz; // Očekuje se niz ID-eva namirnica
+            
+            // Kreiranje nove korpe
+            $korpa = korpa::create([
+                'korisnik_id' => $korisnikId,
+                'ukupna_cena' => $ukupnaCena
+            ]);
+            
+            // Kreiranje stavki korpe za svaki ID namirnice iz niza
+            foreach ($stavkeNiz as $namirnicaId) {
+                stavka_korpa::create([
+                    'korpa_id' => $korpa->id, // Koristi ID novo-kreirane korpe
+                    'namirnica_id' => $namirnicaId,
+                ]);
+            }
+            
+            DB::commit();
+            
+            // Vraća se odgovor sa porukom o uspehu i ID-om korpe
+            return response()->json([
+                'message' => 'Plaćanje uspešno procesirano',
+                'korpa_id' => $korpa->id
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            // Vraća se odgovor sa porukom o grešci
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
 
 
 }

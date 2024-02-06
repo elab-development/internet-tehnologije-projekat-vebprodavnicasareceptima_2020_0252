@@ -13,7 +13,7 @@ class stavka_korpa extends Model
     use HasFactory;
 
     public function korpa(){
-        return $this->belogsTo(korpa::class, 'korpa_id');
+        return $this->belongsTo(korpa::class, 'korpa_id');
     }
 
     public function namirnica(){

@@ -52,6 +52,7 @@ Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy'])
 //KORISNIK
 
 Route::get('/korisnici', [KorisnikController::class, 'index']);
+Route::post('/korisnici/izmeni/{id}', [KorisnikController::class, 'update']);
 
 
 
@@ -91,6 +92,8 @@ Route::post('/korpa/napravi', [KorpaController::class, 'store']);
 Route::get('/korpa/prikaziKorpu', [KorpaController::class, 'prikaziKorpu']);
 
 Route::delete('/korpa/obrisi/{id}', [KorpaController::class, 'destroy']);
+
+Route::post('/korpa/transakcija', [KorpaController::class, 'obradiKorpu']);
 
 
 
