@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Placanje({ korpa, user,ukupno }) {
-console.log(ukupno)
+
+    const [transakcijaDetalji, setTransakcijaDetalji] = useState(null);
 
     function kreirajNizIdIzKorpe(korpa) {
         let nizId = [];
@@ -56,6 +57,7 @@ console.log(ukupno)
       .then(response => {
         // Uspesna transakcija
         console.log(response.data);
+        setTransakcijaDetalji(response.data.detalji);
         alert('Transakcija uspešno procesirana!');
         // Ovde možete očistiti stanje korpe ili navigirati korisnika na drugu stranicu
       })
@@ -90,7 +92,13 @@ console.log(ukupno)
 
       <button onClick={handleTransakcija}>Potvrdi</button>
       
-      
+      {transakcijaDetalji && (
+        <div>
+          <h3>Detalji transakcije:</h3>
+          <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
+          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena}</p>
+        </div>
+      )}
       {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}
     </div>
   );

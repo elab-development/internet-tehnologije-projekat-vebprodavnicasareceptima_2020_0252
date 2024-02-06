@@ -141,11 +141,29 @@ class KorpaController extends Controller
             }
             
             DB::commit();
+
+            $rezultati = DB::table('korisnik')
+            ->join('korpa', 'korisnik.id', '=', 'korpa.korisnik_id')
+            ->join('stavka_korpa', 'korpa.id', '=', 'stavka_korpa.korpa_id')
+            ->join('namirnica', 'stavka_korpa.namirnica_id', '=', 'namirnica.id')
+            ->select(
+                'korisnik.id as korisnik_id',
+                'korisnik.ime',
+                'korisnik.prezime',
+                'korisnik.adresa',
+                'korisnik.email',
+                DB::raw("GROUP_CONCAT(namirnica.naziv SEPARATOR ', ') as namirnice_nazivi"),
+                DB::raw("SUM(namirnica.cena) as ukupna_cena")
+            )
+            ->where('korpa.id', $korpa->id)
+            ->groupBy('korisnik.id', 'korisnik.ime', 'korisnik.prezime', 'korisnik.adresa', 'korisnik.email', 'korpa.id')
+            ->first();
             
             // Vraća se odgovor sa porukom o uspehu i ID-om korpe
             return response()->json([
                 'message' => 'Plaćanje uspešno procesirano',
-                'korpa_id' => $korpa->id
+                'korpa_id' => $korpa->id,
+                'detalji' => $rezultati
             ]);
         } catch (\Exception $e) {
             DB::rollback();
