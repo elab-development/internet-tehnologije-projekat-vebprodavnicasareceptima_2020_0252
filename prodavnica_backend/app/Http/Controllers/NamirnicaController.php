@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\namirnica;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 use Validator;
 
 
@@ -42,6 +44,7 @@ class NamirnicaController extends Controller
             'opis' => 'required|string|max:255', 
             'cena' => 'required|numeric', 
             'velicina_pakovanja' => 'required|string', 
+            'slika_path' => 'required|string'
         
 
         ]);
@@ -57,7 +60,7 @@ class NamirnicaController extends Controller
         $namirnica->opis = $request->opis;
         $namirnica->cena = $request->cena;
         $namirnica->velicina_pakovanja = $request->velicina_pakovanja;
-        $namirnica->slika_path = "";
+        $namirnica->slika_path = $request->slika_path;
       
        
         $namirnica->save();
@@ -151,4 +154,25 @@ class NamirnicaController extends Controller
 
         return response()->json(['namirnice' => $filteredNamirnice]);
     }
+
+
+
+    public function uploadSlika(Request $request)
+{
+    $this->validate($request, [
+        'slika' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    if ($request->hasFile('slika')) {
+        $slika = $request->file('slika');
+        $destinacija = base_path('../prodavnica_frontend/src/assets');
+        $imeSlike = $slika->getClientOriginalName();
+
+        $slika->move($destinacija, $imeSlike);
+
+        return response()->json(['message' => 'Slika uspešno uploadovana', 'ime_slike' => $imeSlike], 200);
+    }
+
+    return response()->json(['message' => 'Greška prilikom uploada slike'], 500);
+}
 }

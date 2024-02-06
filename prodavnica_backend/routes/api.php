@@ -37,7 +37,7 @@ Route::get('/namirnice/nadjiID', [NamirnicaController::class, 'show']); //radi
 Route::get('/namirnice/naziv', [NamirnicaController::class, 'pronadjiPoNaziv']);//radi
 Route::get('/namirnice/kategorija', [NamirnicaController::class, 'namirnicePoKategoriji']);//radi
 Route::post('/namirnice/dodaj', [NamirnicaController::class, 'store']);
-
+Route::post('/upload-slika', [NamirnicaController::class, 'uploadSlika']);
 
 
 

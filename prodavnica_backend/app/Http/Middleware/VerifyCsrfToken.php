@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'api/registracija',
         'api/login',
-        'api/namirnice/dodaj'
+        'api/namirnice/dodaj',
+        'api/upload-slika'
     ];
 }
