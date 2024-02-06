@@ -53,6 +53,7 @@ function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user,promeniUkupno }) {
   }, []);
 
   useEffect(() => {
+    if(korpa.length === 0) setTotalInSelectedCurrency(0);
     if (!exchangeRates || korpa.length === 0) return;
 
     // Ako je odabrana valuta RSD, prikaži ukupnu cijenu u dinarima bez množenja sa kursom
