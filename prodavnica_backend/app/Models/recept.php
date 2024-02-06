@@ -20,8 +20,6 @@ class recept extends Model
         'id',
         'naziv',
         'tekst',
-            
-       
         'slika_path'
 
     ];

@@ -161,11 +161,15 @@ class ReceptController extends Controller
 
     public function exportToPdf(Request $request)
     {
-            $id = $request->id;
-
+        $id = $request->id;
         $recept = Recept::findOrFail($id);
 
-        $pdf = PDF::loadView('recept_pdf', ['recept' => $recept]);
+        /*$pdf = PDF::loadView('recept_pdf', ['recept' => $recept]);
+        return $pdf->download('recept-' . $recept->id . '.pdf');*/
+        $naslov = $recept->naziv;
+        $tekst = $recept->tekst;
+
+         $pdf = PDF::loadView('recept_pdf', compact('naslov',  'tekst'))->setPaper('a4')->setOptions(['default-encoding' => 'utf-8']);
         return $pdf->download('recept-' . $recept->id . '.pdf');
     }
 
