@@ -73,6 +73,7 @@ console.log(ukupno)
   
 
   return (
+    <div className='veliki_div_transakcija'>
     <div className="placanje">
       <div className="placanje_user_info">
       <h2>Detalji Plaćanja</h2>
@@ -94,12 +95,12 @@ console.log(ukupno)
       </div>
 
       <button className='dugme_transakcija' onClick={handleTransakcija}>Potvrdi</button>
-      
-      {transakcijaDetalji && (
-        <div>
+    </div>
+    {transakcijaDetalji && (
+        <div className='detalji_transakcija'>
           <h3>Detalji transakcije:</h3>
           <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
-          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena}</p>
+          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena} RSD</p>
         </div>
       )}
       {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}
