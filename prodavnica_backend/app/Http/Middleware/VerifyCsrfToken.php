@@ -16,6 +16,8 @@ class VerifyCsrfToken extends Middleware
         'api/login',
         'api/namirnice/dodaj',
         'api/upload-slika',
-        'api/namirnice/obrisi/*'
+        'api/namirnice/obrisi/*',
+        'api/korpa/transakcija',
+        'api/korisnici/izmeni/*',
     ];
 }

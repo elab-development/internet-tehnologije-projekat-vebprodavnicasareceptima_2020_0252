@@ -18,7 +18,7 @@ class namirnica extends Model
         return $this->hasMany(stavka_recept::class);
     }
 
-    public function stavakKorpe(){
+    public function stavkaKorpe(){
         return $this->hasMany(stavka_korpe::class);
     }
 
