@@ -121,6 +121,7 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
   
 
   return (
+    <div className='veliki_div_transakcija'>
     <div className="placanje">
       <div className="placanje_user_info">
       <h2>Detalji Plaćanja</h2>
@@ -142,12 +143,12 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
       </div>
 
       <button className='dugme_transakcija' onClick={handleTransakcija}>Potvrdi</button>
-      
-      {transakcijaDetalji && (
-        <div>
+    </div>
+    {transakcijaDetalji && (
+        <div className='detalji_transakcija'>
           <h3>Detalji transakcije:</h3>
           <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
-          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena}</p>
+          <p>Ukupna cena: {transakcijaDetalji.ukupna_cena} RSD</p>
             <p>{poklapajuciRecept.naziv}</p>
         </div>
       )}
