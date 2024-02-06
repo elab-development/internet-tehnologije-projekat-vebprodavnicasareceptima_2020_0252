@@ -90,6 +90,7 @@ function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user }) {
                 cena={sastojak.cena}
                 velicina_pakovanja={sastojak.velicina_pakovanja}
                 dodajUKorpu={dodajUKorpu}
+                user={user}
               />
             </div>
           ))}

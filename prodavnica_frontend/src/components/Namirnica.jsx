@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import '../style/namirnica.css';
+import axios from 'axios';
 
 
 
 
 function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user}) {
   
-  
+
 
   const handleDodajUKorpuClick = () => {
     if (user==='neulogovan') {
@@ -23,6 +24,19 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
     }
   };
 
+  const handleObrisiClick = async () => {
+    if (window.confirm('Da li ste sigurni da želite da obrišete ovu namirnicu?')) {
+      try {
+        const response = await axios.delete(`http://127.0.0.1:8000/api/namirnice/obrisi/${namirnicaId}`);
+        console.log(response.data);
+        alert('Namirnica je uspešno obrisana.');
+        // Ovde treba ažurirati listu namirnica nakon brisanja
+      } catch (error) {
+        console.error('Došlo je do greške prilikom brisanja namirnice:', error.response);
+        alert('Greška prilikom brisanja namirnice!');
+      }
+    }
+  };
 
 
     return (
@@ -47,6 +61,14 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         >
           Dodaj u korpu
         </button>
+ 
+        {
+  user.uloga === 'admin' && (
+    <button onClick={handleObrisiClick} className="namirnica_dugme">
+      Obriši
+    </button>
+  )
+}
        
         </div>
       </div>

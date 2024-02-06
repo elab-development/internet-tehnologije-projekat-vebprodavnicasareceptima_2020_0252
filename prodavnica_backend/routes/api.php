@@ -38,6 +38,8 @@ Route::get('/namirnice/naziv', [NamirnicaController::class, 'pronadjiPoNaziv']);
 Route::get('/namirnice/kategorija', [NamirnicaController::class, 'namirnicePoKategoriji']);//radi
 Route::post('/namirnice/dodaj', [NamirnicaController::class, 'store']);
 Route::post('/upload-slika', [NamirnicaController::class, 'uploadSlika']);
+Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy']);
+    Route::put('/namirnice/izmeni/{id}', [NamirnicaController::class, 'update']);
 
 
 
@@ -129,8 +131,7 @@ Route::delete('/stavkaRecept/izbrisi/{id}', [StavkaReceptController::class, 'des
 
 Route::middleware('auth')->group(function () {
    
-    Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy']);
-    Route::put('/namirnice/izmeni/{id}', [NamirnicaController::class, 'update']);
+    
 });
 
 
