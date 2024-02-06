@@ -31,7 +31,8 @@ const LoginForm = ({ onLogin }) => {
         if (response.data['Token: ']) {
           localStorage.setItem('token', response.data['Token: ']);
           let user =response.data['Korisnik: '];
-          console.log(user)
+        
+          
           onLogin(user);
          
           onLogin(user);

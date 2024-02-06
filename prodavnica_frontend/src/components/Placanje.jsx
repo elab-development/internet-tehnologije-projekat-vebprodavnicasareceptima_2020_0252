@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../style/placanje.css";
 
-function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti }) {
-console.log(ukupno)
+function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
+
+
 
 
     const [transakcijaDetalji, setTransakcijaDetalji] = useState(null);
+    const [poklapajuciRecept, setPoklapajuciRecept] = useState(null);
+
 
     function kreirajNizIdIzKorpe(korpa) {
         let nizId = [];
@@ -17,8 +20,18 @@ console.log(ukupno)
         });
         return nizId;
       }
+      function jedinstveniNiz(korpa) {
+        let nizId = [];
+        korpa.forEach(stavka => {
+          for (let i = 0; i < stavka.kolicina; i++) {
+            nizId.push(stavka.id);
+          }
+        });
+        let jedinstveniNizId = [...new Set(nizId)];
+  return jedinstveniNizId;
+      }
 
-    console.log(kreirajNizIdIzKorpe(korpa))
+    
   const [adresa, setAdresa] = useState(user.Adresa);
 
   const handleAdresaChange = (e) => {
@@ -33,7 +46,7 @@ console.log(ukupno)
     axios.post(`http://127.0.0.1:8000/api/korisnici/izmeni/${user.id}`, params)
     .then((response) => {
       // Obradite uspešan odgovor
-      console.log(response.data);
+      
       alert('Adresa uspešno ažurirana!');
     })
     .catch((error) => {
@@ -59,10 +72,13 @@ console.log(ukupno)
     axios.post('http://127.0.0.1:8000/api/korpa/transakcija', transakcijaData)
       .then(response => {
         // Uspesna transakcija
-        console.log(response.data);
+        
         setTransakcijaDetalji(response.data.detalji);
         alert('Transakcija uspešno procesirana!');
-        // Ovde možete očistiti stanje korpe ili navigirati korisnika na drugu stranicu
+        let niz = jedinstveniNiz(korpa)
+       
+        izracunajPoklapanja(recepti,niz)
+       
       })
       .catch(error => {
         // Neuspela transakcija
@@ -70,6 +86,38 @@ console.log(ukupno)
         alert('Greška prilikom transakcije!');
       });
   }
+  
+  const izracunajPoklapanja = (recepti, kupljeneNamirniceId) => {
+    let najvisePoklapanja = 0;
+    let receptSaNajvisePoklapanja = null;
+  
+    recepti.forEach(recept => {
+      let brojPoklapanja = 0;
+      recept.stavka_recept.forEach(stavka => {
+        // Koristimo namirnica_id za poređenje sa ID-evima namirnica iz korpe
+        if (kupljeneNamirniceId.includes(stavka.namirnica_id)) {
+          brojPoklapanja++;
+        }
+      });
+  
+      if (brojPoklapanja > najvisePoklapanja) {
+        najvisePoklapanja = brojPoklapanja;
+        receptSaNajvisePoklapanja = recept;
+      }
+    });
+ 
+    setPoklapajuciRecept(receptSaNajvisePoklapanja);
+    
+  };
+  
+  useEffect(() => {
+    if (poklapajuciRecept) {
+      console.log('Poklapajući recept:', poklapajuciRecept);
+    
+      // Ovde možete uraditi dodatne akcije sa poklapajućim receptom
+    }
+  }, [poklapajuciRecept]);
+  
   
 
   return (
@@ -101,6 +149,7 @@ console.log(ukupno)
           <h3>Detalji transakcije:</h3>
           <p>Namirnice: {transakcijaDetalji.namirnice_nazivi}</p>
           <p>Ukupna cena: {transakcijaDetalji.ukupna_cena} RSD</p>
+            <p>{poklapajuciRecept.naziv}</p>
         </div>
       )}
       {/* Ovde možete dodati prikaz stavki korpe ako je potrebno */}

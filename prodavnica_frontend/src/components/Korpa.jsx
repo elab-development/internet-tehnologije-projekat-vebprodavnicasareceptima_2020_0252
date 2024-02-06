@@ -6,7 +6,8 @@ import "../style/korpa.css";
 function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user,promeniUkupno }) {
 
   const navigate = useNavigate();
-  console.log(korpa)
+ 
+  
 
 
   const handlePlacanje = () => {

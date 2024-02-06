@@ -166,7 +166,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Placanje korpa={korpa}  user = {loggedInUser} ukupno={ukupno} valuta={valuta} ukupnoUValuti={ukupnoUValuti}/>
+        <Placanje korpa={korpa}  user = {loggedInUser} ukupno={ukupno} valuta={valuta} ukupnoUValuti={ukupnoUValuti} recepti={receptiData}/>
         </>
         ) : (<Navigate to="/" />)} 
         />
