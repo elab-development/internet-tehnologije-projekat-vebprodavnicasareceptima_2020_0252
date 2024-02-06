@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Uvoz axios-a
 import InputField from './InputField.jsx';
 import ReusableDugme from './ReusableDugme.jsx';
+import DOMPurify from 'dompurify';
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -14,9 +15,14 @@ const LoginForm = ({ onLogin }) => {
   
   const handleLogin = () => {
     // Kreiranje URL-a sa query params za email i password
+    console.log(email);
+    const cleanEmail = DOMPurify.sanitize(email);
+    const cleanPassword = DOMPurify.sanitize(password);
+    console.log(cleanEmail);
+
     const params = new URLSearchParams({
-      email: email,
-      password: password
+      email: cleanEmail,
+      password: cleanPassword
     });
  
     axios.post(`http://127.0.0.1:8000/api/login?${params.toString()}`)

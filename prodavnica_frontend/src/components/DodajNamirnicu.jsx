@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Uvoz axios-a
 import '../style/dodajnamirnicu.css';
+import DOMPurify from 'dompurify';
 
 function DodajNamirnicuForm({}) {
 
@@ -17,12 +18,17 @@ function DodajNamirnicuForm({}) {
 
 
   const dodajNovuNamirnicu = (naziv, opis, cena, velicinaPakovanja,slikaNaziv) => {
+
+    const cleanNaziv = DOMPurify.sanitize(naziv);
+    const cleanOpis = DOMPurify.sanitize(opis);
+    const cleanCena = DOMPurify.sanitize(cena);
+    const cleanVelicina = DOMPurify.sanitize(velicinaPakovanja);
     // Kreiranje parametara za POST zahtev
     const params = new URLSearchParams();
-    params.append('naziv', naziv);
-    params.append('opis', opis);
-    params.append('cena', cena);
-    params.append('velicina_pakovanja', velicinaPakovanja);
+    params.append('naziv', cleanNaziv);
+    params.append('opis', cleanOpis);
+    params.append('cena', cleanCena);
+    params.append('velicina_pakovanja', cleanVelicina);
     params.append('slika_path', `assets/${slikaNaziv}`);
   
     // Pošaljite POST zahtev na server koristeći axios
