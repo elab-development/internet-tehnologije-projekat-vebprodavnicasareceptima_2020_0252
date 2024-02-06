@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Uvoz axios-a
+import '../style/dodajnamirnicu.css';
 
 function DodajNamirnicuForm({}) {
 
@@ -84,28 +85,29 @@ function DodajNamirnicuForm({}) {
 
   
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form  className="formica" onSubmit={handleSubmit}>
+      <p className='naslov_formica'>Unesite podatke o namirnici:</p>
+      <input className="dodaj_polje"
         type="text"
         placeholder="Naziv"
         value={naziv}
         onChange={(e) => setNaziv(e.target.value)}
         required
       />
-      <textarea
+      <textarea className="dodaj_text"
         placeholder="Opis"
         value={opis}
         onChange={(e) => setOpis(e.target.value)}
         required
       />
-      <input
+      <input className="dodaj_polje"
         type="number"
         placeholder="Cena"
         value={cena}
         onChange={(e) => setCena(e.target.value)}
         required
       />
-      <input
+      <input className="dodaj_polje"
         type="text"
         placeholder="Veličina pakovanja"
         value={velicinaPakovanja}
@@ -113,11 +115,11 @@ function DodajNamirnicuForm({}) {
         required
       />
       
-      <input
+      <input className="dodaj_fajl"
         type="file"
         onChange={handleSlikaChange}
       />
-      <button type="submit">Dodaj Namirnicu</button>
+      <button className="dodaj_dugmence" type="submit">Dodaj Namirnicu</button>
     </form>
   );
 }

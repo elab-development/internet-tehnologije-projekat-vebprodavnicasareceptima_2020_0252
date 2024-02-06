@@ -122,7 +122,7 @@ function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user }) {
           {totalInSelectedCurrency.toFixed(2)} {selectedCurrency}
         </p>
 
-        <select value={selectedCurrency} onChange={handleCurrencyChange}>
+        <select className="combic" value={selectedCurrency} onChange={handleCurrencyChange}>
           <option value="RSD">RSD</option>
           <option value="EUR">EUR</option>
         </select>

@@ -43,7 +43,7 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
     return (
       <div className="namirnica">
         <div className="namirnica_naziv">
-          <p>{naziv}</p>
+          <p className='namirnica_naziv'>{naziv}</p>
         </div>
         <div className="namrinica_sadrzaj">
 
