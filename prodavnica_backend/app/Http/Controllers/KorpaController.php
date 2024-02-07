@@ -172,6 +172,36 @@ class KorpaController extends Controller
         }
     }
     
+    public function prihodPoDanu()
+    {
+        $podaci = DB::table('korpa')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d %H:%i:00") as datum'), DB::raw('SUM(ukupna_cena) as prihod'))
+            ->whereNotNull('created_at')
+            ->groupBy('datum')
+            ->get();
+        return response()->json($podaci);
+    }
 
+    public function prihodPoMesecu()
+    {
+        $podaci = DB::table('kopra')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m") as datum'), DB::raw('SUM(ukupna_cena) as prihod'))
+            ->whereNotNull('created_at')
+            ->groupBy('datum')
+            ->get();
+
+        return response()->json($podaci);
+    }
+
+    public function prihodPoGodini()
+    {
+        $podaci = DB::table('kopra')
+            ->select(DB::raw('YEAR(created_at) as datum'), DB::raw('SUM(ukupna_cena) as prihod'))
+            ->whereNotNull('created_at')
+            ->groupBy('datum')
+            ->get();
+
+        return response()->json($podaci);
+    }
 
 }

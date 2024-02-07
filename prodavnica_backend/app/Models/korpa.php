@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class korpa extends Model
 {
     protected $table='korpa';
-    public $timestamps = false;
+    public $timestamps = true;
 
     use HasFactory;
 

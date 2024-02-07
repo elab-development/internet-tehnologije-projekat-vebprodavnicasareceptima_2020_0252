@@ -14,6 +14,7 @@ import DodajNamirnicu from './components/DodajNamirnicu.jsx';
 import { kategorije , namirnice,recepti} from './data.js';
 import ReceptDetalji from './components/ReceptDetalji.jsx';
 import Placanje from './components/Placanje.jsx';
+import Grafikon from './components/Grafikon.jsx';
 
 
 function App() {
@@ -170,6 +171,16 @@ function App() {
         </>
         ) : (<Navigate to="/" />)} 
         />
+        <Route 
+        path="grafikon"
+        element={loggedInUser ? (
+          <>
+          <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+          <Grafikon/>
+        </>
+        ) : (<Navigate to="/" />)} 
+        />
+
 
       </Routes>
      

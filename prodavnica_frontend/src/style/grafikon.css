@@ -1,0 +1,16 @@
+.grafikon_combic {
+  background-color: rgb(99, 158, 91);
+  width: 150px;
+  height: 40px;
+  border: 1pc;
+  border-radius: 25px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.grafikon_veliki {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

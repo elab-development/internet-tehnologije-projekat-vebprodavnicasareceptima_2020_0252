@@ -37,6 +37,13 @@ function Navbar({ loggedInUser, handleLogout }) {
                   <li className="nav_stavka nav_stavka_link">
                     <Link to='/dodaj-namirnicu'> DODAJ NAMIRNICU </Link>
                   </li>
+                  
+                )}
+                {loggedInUser.uloga === 'admin' && (
+                  <li className="nav_stavka nav_stavka_link">
+                    <Link to='/grafikon'> GRAFIKON </Link>
+                  </li>
+                  
                 )}
                 <li className="nav_stavka nav_stavka_link velika-stavka">
                   <Link to='/korpa'><TiShoppingCart /></Link>

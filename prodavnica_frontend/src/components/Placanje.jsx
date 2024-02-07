@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../style/placanje.css";
 
+
 function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
    
 

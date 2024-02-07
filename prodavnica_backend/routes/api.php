@@ -141,3 +141,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/10namirnica', [NamirnicaController::class, 'index']);
 Route::get('/namirnice/filtriraj', [NamirnicaController::class, 'filtriraj']);
+
+
+Route::get('/prihod_po_dan', [KorpaController::class, 'prihodPoDanu']);
+Route::get('/prihod_po_mesec', [PrihodController::class, 'prihodPoMesecu']);
+Route::get('/prihod_po_godina', [PrihodController::class, 'prihodPoGodini']);
