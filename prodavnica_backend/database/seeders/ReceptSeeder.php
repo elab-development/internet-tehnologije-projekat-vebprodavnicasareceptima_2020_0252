@@ -37,6 +37,47 @@ class ReceptSeeder extends Seeder
               
                 'slika_path' =>'assets/krofne.jpg'
 
+            ],
+            [
+                'naziv' => 'Salata sa piletinom',
+                'tekst' => 'Pileće meso se začini i ispeče..U širok tanjir ili na poslužavnik se kao
+                 podloga stavlja zelena salata, a preko toga se ređaju ostale komponente.Stavite seckanu 
+                 piletinu u sredinu. Oko nje rasporedite nasečeno kuvano jaje, paradajz, i sir.Salata je 
+                 ukrašena sa pola glavice luka, isečene na kolutove. Neposredno pre serviranja začiniti.',
+              
+                'slika_path' =>'assets/salata1.jpg'
+
+
+            ],
+            [
+                'naziv' => 'Domaći hleb',
+                'tekst' => 'Brasno prosejati i sipati u posudu za mesenje.U sredini brasna izmrviti kvasac dodati so i secer.
+                Sipati mlaku vodu i zamesiti testo.Testo mora da bude meko.Ostaviti da nadodje ,
+                 pa jos jednom premesiti i ponovo ostaviti da nadodje.Jos jednom premesiti i sipati u dobro modmazan pleh.
+                 Po vrhu izbosti testo sa viljuskom na vise mesta.Peci u dobro zagrejanoj rerni na 220c',
+              
+                'slika_path' =>'assets/hleb.jpg'
+
+            ],
+            [
+                'naziv' => 'Piletina sa pirinčem',
+                'tekst' => 'Propržiti piletinu da porumeni, skloniti je sa vatre u tanjir,
+                 a u šerpi gde se pržila piletina stavimo iseckani crni luk. Dodati i sve začine,
+                  sipati oprani pirinač i naliti čašom (2 dl) vode.Staviti da se peče oko 40 minuta dok se pirinač dobro
+                   ne ispeče.',
+              
+                'slika_path' =>'assets/pilet.jpg'
+
+            ],
+            [
+                'naziv' => 'Organska ovsena kaša',
+                'tekst' => 'Sipajte ovsene pahuljice u provrelu vodu, pomešajte, sklonite sa vatre i ostavite poklopljene desetak minuta.
+                 Kada upiju vodu i kada omekšaju, vratite ih na vatru i lagano umešajte bademovo mleko. Opcije za dodatke su različite i
+                  zavise od ukusa.
+                 Možete umešati naseckanu bananu.',
+              
+                'slika_path' =>'assets/ovsenaKasa.jpg'
+
             ]
            
         ]);

@@ -43,6 +43,33 @@ class NamirnicaSeeder extends Seeder
                 'slika_path'=>'assets/krastavac.jpg' 
             ],
             [
+                'naziv' => 'Zelena salata',
+                'opis' => 'Sveža, oprana',
+                'cena' =>   70.99,
+                'velicina_pakovanja' => '150g',
+               
+                'slika_path'=>'assets/salata.jpg' 
+            ],
+
+           [
+                'naziv' => 'Luk crveni',
+                'opis' => 'Domaći luk',
+                'cena' =>   89.99,
+                'velicina_pakovanja' => '1 kg',
+               
+                'slika_path'=>'assets/luk.jpg' 
+            ],
+            [
+                'naziv' => 'Paradajz',
+                'opis' => 'Svež, opran',
+                'cena' =>   249.99,
+                'velicina_pakovanja' => '1 kg',
+               
+                'slika_path'=>'assets/paradajz.jpg' 
+            ],
+          
+         
+            [
                 'naziv' => 'Pavlaka',
                 'opis' => 'Kisela pavlaka 20%',
                 'cena' => 92,
@@ -65,7 +92,27 @@ class NamirnicaSeeder extends Seeder
                 'velicina_pakovanja' => '500 g',
              
                 'slika_path'=>'assets/sir.jpg'
-            ],  
+            ], 
+            [
+                'naziv' => 'Pirinač',
+                'opis' => 'Pirinač dugo zrno',
+                'cena' => 200,
+                'velicina_pakovanja' => '500 g',
+             
+                'slika_path'=>'assets/pirinac.jpg'
+
+               
+            ] ,
+            [
+                'naziv' => 'Testenina',
+                'opis' => 'Testenina Fusilli',
+                'cena' => 200,
+                'velicina_pakovanja' => '500 g',
+             
+                'slika_path'=>'assets/testenina.jpg'
+
+               
+            ] ,
             [
                 'naziv' => 'Ovsene pahuljice',
                 'opis' => 'Ovsene pahuljice dr Oetker',
@@ -166,6 +213,25 @@ class NamirnicaSeeder extends Seeder
                 'slika_path'=>'assets/so.jpg'
 
             ],
+            
+            [
+                'naziv' => 'Pileci file',
+                'opis' => 'Svezi pileći file',
+                'cena' => 385.00,
+                'velicina_pakovanja' => '500 g',
+      
+                'slika_path'=>'assets/pilecifile.jpg'
+
+            ],
+            [
+                'naziv' => 'Banane',
+                'opis' => 'Sveže banane',
+                'cena' => 189.00,
+                'velicina_pakovanja' => '1 kg',
+      
+                'slika_path'=>'assets/Banane.jpg'
+
+            ]
 
 
             
