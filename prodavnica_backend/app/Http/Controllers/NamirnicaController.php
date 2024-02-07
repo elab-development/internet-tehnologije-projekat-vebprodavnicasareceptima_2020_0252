@@ -116,12 +116,12 @@ public function destroy($id)
     $stavke = stavka_korpa::where('namirnica_id', $id)->get();
    
 
-    // Setuj namirnica_id na NULL za sve pronađene stavke korpe
-    foreach ($stavkeRecept as $stavka) {
+    
+    foreach ($stavke as $stavka) {
         $stavka->namirnica_id = NULL;
         $stavka->save();
     }
-   
+
     // Nakon što su sve zavisne stavke ažurirane, obriši namirnicu
     $nam = namirnica::findOrFail($id);
     $nam->delete();
