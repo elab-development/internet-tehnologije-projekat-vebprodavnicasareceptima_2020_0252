@@ -3,7 +3,7 @@ import axios from 'axios';
 import "../style/placanje.css";
 
 
-function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
+function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti,ocistiKorpu }) {
    
 
 
@@ -80,7 +80,7 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
         let niz = jedinstveniNiz(korpa)
        
         izracunajPoklapanja(recepti,niz)
-       
+        ocistiKorpu();
       })
       .catch(error => {
         // Neuspela transakcija
