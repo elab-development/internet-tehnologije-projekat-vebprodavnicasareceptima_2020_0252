@@ -23,6 +23,7 @@ function DodajNamirnicuForm({}) {
     const cleanOpis = DOMPurify.sanitize(opis);
     const cleanCena = DOMPurify.sanitize(cena);
     const cleanVelicina = DOMPurify.sanitize(velicinaPakovanja);
+    
     // Kreiranje parametara za POST zahtev
     const params = new URLSearchParams();
     params.append('naziv', cleanNaziv);
@@ -124,6 +125,8 @@ function DodajNamirnicuForm({}) {
       <input className="dodaj_fajl"
         type="file"
         onChange={handleSlikaChange}
+        accept=".jpg,.jpeg" 
+        required
       />
       <button className="dodaj_dugmence" type="submit">Dodaj Namirnicu</button>
     </form>
