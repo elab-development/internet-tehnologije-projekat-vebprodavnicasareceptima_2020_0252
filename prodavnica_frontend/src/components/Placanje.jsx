@@ -178,7 +178,7 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti }) {
         <p className='receptic_tekstic'>{poklapajuciRecept.tekst}</p>
         <button className="pdf_dugme" onClick={sacuvajUdPDF}>Sačuvaj u PDF-u</button>
         </div>
-         : <p>Nema predloga recepta</p>} 
+         : <p className='nema'>Nema predloga recepta</p>} 
     </div>
     )}
     </div>

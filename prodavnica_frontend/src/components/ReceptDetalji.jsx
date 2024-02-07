@@ -33,6 +33,7 @@ function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user }) {
           slika: require(`../${sastojak.slika_path}`),
         });
       });
+      alert('Sve namirnice su dodate u korpu.');
     }
   };
 
