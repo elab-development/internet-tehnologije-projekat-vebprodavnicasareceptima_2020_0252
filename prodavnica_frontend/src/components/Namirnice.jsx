@@ -3,7 +3,7 @@ import Namirnica from "./Namirnica";
 import "../style/namirnice.css";
 import Filter from "./Filter";
 
-    function Namirnice({ kriterijum, dodajUKorpu, pretrazi,namirnice,user}) {
+    function Namirnice({ kriterijum, dodajUKorpu, pretrazi,namirnice,user,valuta,kurs}) {
       const postsPerPage = 3;
       
      
@@ -62,6 +62,8 @@ import Filter from "./Filter";
               kategorijaId={namirnice.kategorijaId}
               dodajUKorpu={dodajUKorpu}
               user = {user}
+              valuta={valuta}
+              kurs = {kurs}
             />
           
             )

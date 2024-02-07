@@ -154,7 +154,7 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti,ocistiKorpu 
       <p>Email: {user.Email}</p>
       <p>Adresa: {user.Adresa}</p>
       </div>
-      <p className='cena'>Ukupna cena: {valuta === 'RSD' ? ukupno : ukupnoUValuti.toFixed(2)} {valuta}</p>
+      <p className='cena'>Ukupna cena: {valuta === 'RSD' ? ukupno.toFixed(2) : ukupnoUValuti.toFixed(2)} {valuta}</p>
       <div className='promeni_adresu'>
         <label htmlFor="novaAdresa">Promeni adresu:</label>
         <input className='adresa_polje'

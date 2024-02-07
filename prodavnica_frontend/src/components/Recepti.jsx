@@ -69,7 +69,6 @@ function Recepti({ kriterijum, dodajUKorpu, pretrazi, namirnice,recepti}) {
         sastojci = {recepti.stavka_recept}
         //sastojci={recepti.sastojci}
         
-       
       />
     );
   })}

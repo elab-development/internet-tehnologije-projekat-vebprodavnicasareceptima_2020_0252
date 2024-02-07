@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user}) {
+function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user,valuta,kurs}) {
   
 
 
@@ -40,6 +40,16 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
   };
 
 
+  const renderCena = () => {
+    if (valuta === "RSD") {
+      return `${cena} RSD`;
+    } else {
+      const cenaInSelectedCurrency = (cena * kurs).toFixed(2);
+      return `${cenaInSelectedCurrency} ${valuta}`;
+    }
+  };
+
+
     return (
       <div className="namirnica">
         <div className="namirnica_naziv">
@@ -51,7 +61,7 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         {slika && <img src={slika} alt="slika namirnice" className="namirnica_slika" />}
         <p className="namirnica_opis">Opis: {opis}</p>
         
-        <p className="namirnica_cena">Cena: {cena} RSD</p>
+        <p className="namirnica_cena">Cena:{renderCena()}</p>
 
         <p className="namrinica_velicina_pakovanja">Veličina pakovanja: {velicina_pakovanja}</p>
 

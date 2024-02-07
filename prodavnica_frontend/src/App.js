@@ -24,6 +24,8 @@ function App() {
   const [ukupno, setUkupno] = useState(0);
   const [ukupnoUValuti, setUkupnoUValuti] = useState(0);
   const [valuta, setValuta] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("RSD");
+  const [kurs, setKurs] = useState(0);
  
 
  
@@ -49,6 +51,13 @@ function App() {
       })
       .catch((error) => console.error('Error setting namirnice:', error));
   }, []);
+
+
+  const handleCurrencyChange = (selectedCurrency, kurs) => {
+    setSelectedCurrency(selectedCurrency);
+    setKurs(kurs);
+    console.log(selectedCurrency);
+  };
 
 
   //fja za login
@@ -106,7 +115,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} user = {loggedInUser} />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} user = {loggedInUser} valuta={selectedCurrency} kurs={kurs} />
           </>) : (<Navigate to="/" />)}
         />
       <Route
@@ -118,7 +127,7 @@ function App() {
             element={loggedInUser ? (
             <>
             <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} user ={loggedInUser}  promeniUkupno ={promeniUkupno}/>
+            <Korpa korpa={korpa} ukloniIzKorpe={ukloniIzKorpe} dodajUKorpu={dodajUKorpu} user ={loggedInUser}  promeniUkupno ={promeniUkupno} funkcija={handleCurrencyChange}/>
             </>
              ) : (<Navigate to="/" /> )}
       />
@@ -137,7 +146,7 @@ function App() {
         element={loggedInUser ? (
         <>
         <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <Recepti namirnice={namirniceData} kriterijum={uslovPretrage} pretrazi={pretrazi} recepti = {receptiData}/>
+        <Recepti namirnice={namirniceData} kriterijum={uslovPretrage} pretrazi={pretrazi} recepti = {receptiData} />
         </>
         ) : (<Navigate to="/" />)}
         />
@@ -147,7 +156,7 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu} user = {loggedInUser}/>
+        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu} user = {loggedInUser} valuta={selectedCurrency} kurs={kurs}/>
         </>
         ) : (<Navigate to="/" />)} 
         />
