@@ -184,7 +184,7 @@ class KorpaController extends Controller
 
     public function prihodPoMesecu()
     {
-        $podaci = DB::table('kopra')
+        $podaci = DB::table('korpa')
             ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m") as datum'), DB::raw('SUM(ukupna_cena) as prihod'))
             ->whereNotNull('created_at')
             ->groupBy('datum')
@@ -195,7 +195,7 @@ class KorpaController extends Controller
 
     public function prihodPoGodini()
     {
-        $podaci = DB::table('kopra')
+        $podaci = DB::table('korpa')
             ->select(DB::raw('YEAR(created_at) as datum'), DB::raw('SUM(ukupna_cena) as prihod'))
             ->whereNotNull('created_at')
             ->groupBy('datum')
