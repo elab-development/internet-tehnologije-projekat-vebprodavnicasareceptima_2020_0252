@@ -16,7 +16,7 @@ class StavkaReceptSeeder extends Seeder
         DB::table('stavka_recept')->insert([
             [
                 'recept_id' => 1, 
-                'namirnica_id' => 14, 
+                'namirnica_id' => 17, 
                 'kolicina_namirnice' => 0.2
             ],
             [
@@ -26,12 +26,27 @@ class StavkaReceptSeeder extends Seeder
             ],
             [
                 'recept_id' => 1, 
-                'namirnica_id' => 5, 
+                'namirnica_id' => 18, 
                 'kolicina_namirnice' => 0.3
             ],
             [
                 'recept_id' => 1,
-                'namirnica_id' => 13, 
+                'namirnica_id' => 19, 
+                'kolicina_namirnice' => 0.2
+            ],
+            [
+                'recept_id' => 1,
+                'namirnica_id' => 20, 
+                'kolicina_namirnice' => 0.2
+            ],
+            [
+                'recept_id' => 1,
+                'namirnica_id' => 8, 
+                'kolicina_namirnice' => 0.2
+            ],
+            [
+                'recept_id' => 1,
+                'namirnica_id' => 21, 
                 'kolicina_namirnice' => 0.2
             ],
 
@@ -76,7 +91,85 @@ class StavkaReceptSeeder extends Seeder
                 'kolicina_namirnice' => 0.2
 
 
-            ]
+            ],
+/////////////////////////////////////////////////
+            [
+            'recept_id' => 3, 
+            'namirnica_id' => 24, 
+            'kolicina_namirnice' => 500
+            ],
+            [
+                 'recept_id' => 3, 
+                 'namirnica_id' => 4, 
+                 'kolicina_namirnice' => 0.2
+             ],
+
+             [
+                  'recept_id' => 3, 
+                  'namirnica_id' => 6, 
+                  'kolicina_namirnice' => 0.2
+             ],
+             [
+                'recept_id' => 3, 
+                'namirnica_id' => 19, 
+                'kolicina_namirnice' => 0.1
+           ],
+           [
+            'recept_id' => 3, 
+            'namirnica_id' => 5, 
+            'kolicina_namirnice' => 0.2
+           ],
+           [
+            'recept_id' => 4, 
+            'namirnica_id' => 18, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 4, 
+            'namirnica_id' => 21, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 4, 
+            'namirnica_id' => 23, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 4, 
+            'namirnica_id' => 22, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 5, 
+            'namirnica_id' => 24, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 5, 
+            'namirnica_id' => 10, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 5, 
+            'namirnica_id' => 5, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 6, 
+            'namirnica_id' => 12, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 6, 
+            'namirnica_id' => 13, 
+            'kolicina_namirnice' => 1
+           ],
+           [
+            'recept_id' => 6, 
+            'namirnica_id' => 25, 
+            'kolicina_namirnice' => 1
+           ]
+
 
 
             
