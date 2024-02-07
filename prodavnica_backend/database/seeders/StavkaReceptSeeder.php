@@ -44,54 +44,38 @@ class StavkaReceptSeeder extends Seeder
                 'namirnica_id' => 8, 
                 'kolicina_namirnice' => 0.2
             ],
-            [
-                'recept_id' => 1,
-                'namirnica_id' => 21, 
-                'kolicina_namirnice' => 0.2
-            ],
+         
 
             ///////////////////////////////////////////////////////       
             [
                 'recept_id' => 2,
-                'namirnica_id' => 13, 
+                'namirnica_id' => 8, 
                 'kolicina_namirnice' => 1
 
             ],
             [
                 'recept_id' => 2, 
-                'namirnica_id' => 5, 
+                'namirnica_id' => 22, 
                 'kolicina_namirnice' => 0.6
             ],
             [
                 'recept_id' => 2, 
-                'namirnica_id' => 15, 
+                'namirnica_id' => 18, 
                 'kolicina_namirnice' => 0.1
             ],
             [
                 'recept_id' => 2, 
-                'namirnica_id' => 16, 
+                'namirnica_id' =>20, 
                 'kolicina_namirnice' => 0.01
 
             ],
             [
                 'recept_id' => 2, 
-                'namirnica_id' => 17, 
+                'namirnica_id' => 19, 
                 'kolicina_namirnice' => 0.06
 
-            ],[
-
-                'recept_id' => 2, 
-                'namirnica_id' => 18, 
-                'kolicina_namirnice' => 0.015
             ],
-            [
-
-                'recept_id' => 2, 
-                'namirnica_id' => 14, 
-                'kolicina_namirnice' => 0.2
-
-
-            ],
+           
 /////////////////////////////////////////////////
             [
             'recept_id' => 3, 
