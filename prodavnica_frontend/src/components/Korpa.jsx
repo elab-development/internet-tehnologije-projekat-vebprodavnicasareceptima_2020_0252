@@ -13,7 +13,10 @@ function Korpa({ korpa, ukloniIzKorpe, dodajUKorpu, user,promeniUkupno }) {
   const handlePlacanje = () => {
     if (user === "neulogovan") {
       alert("Morate se ulogovati da biste izvršili plaćanje.");
-    } else {
+    }else if(korpa.length==0){
+      alert("Korpa je prazna.");
+    } 
+    else {
       if(selectedCurrency==="RSD"){
         promeniUkupno(selectedCurrency,totalInSelectedCurrency);
         navigate('Placanje');
