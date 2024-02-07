@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\namirnica;
+use App\Models\stavka_korpa;
+use App\Models\stavka_recept;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -107,10 +109,23 @@ class NamirnicaController extends Controller
     
 
 
-    public function destroy($id)
+  
+public function destroy($id)
 {
+    // Pronađi sve stavke korpe koje koriste namirnicu
+    $stavke = stavka_korpa::where('namirnica_id', $id)->get();
+   
+
+    // Setuj namirnica_id na NULL za sve pronađene stavke korpe
+    foreach ($stavkeRecept as $stavka) {
+        $stavka->namirnica_id = NULL;
+        $stavka->save();
+    }
+   
+    // Nakon što su sve zavisne stavke ažurirane, obriši namirnicu
     $nam = namirnica::findOrFail($id);
     $nam->delete();
+
     return response()->json('Uspešno obrisana namirnica!');
 }
 
@@ -166,7 +181,7 @@ class NamirnicaController extends Controller
     if ($request->hasFile('slika')) {
         $slika = $request->file('slika');
         $destinacija = base_path('../prodavnica_frontend/src/assets');
-        $imeSlike = $slika->getClientOriginalName();
+       $imeSlike = $slika->getClientOriginalName();
 
         $slika->move($destinacija, $imeSlike);
 

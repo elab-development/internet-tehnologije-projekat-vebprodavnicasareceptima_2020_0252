@@ -11,7 +11,7 @@ Schema::create('stavka_recept', function (Blueprint $table) {
 $table->id();
 $table->unsignedBigInteger('recept_id');
 $table->foreign('recept_id')->references('id')->on('recept');
-$table->unsignedBigInteger('namirnica_id');
+$table->unsignedBigInteger('namirnica_id')->nullable();
 $table->foreign('namirnica_id')->references('id')->on('namirnica');
 $table->double('kolicina_namirnice');
 

@@ -11,7 +11,7 @@ class CreateStavkaKorpaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('korpa_id');
             $table->foreign('korpa_id')->references('id')->on('korpa');
-            $table->unsignedBigInteger('namirnica_id');
+            $table->unsignedBigInteger('namirnica_id')->nullable();
             $table->foreign('namirnica_id')->references('id')->on('namirnica');
            
         });

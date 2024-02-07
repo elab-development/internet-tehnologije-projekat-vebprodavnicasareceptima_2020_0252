@@ -115,7 +115,9 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi} namirnice={namirniceData} user = {loggedInUser} valuta={selectedCurrency} kurs={kurs} />
+          <Namirnice dodajUKorpu={dodajUKorpu} kriterijum={uslovPretrage} pretrazi={pretrazi}
+           namirnice={namirniceData} user = {loggedInUser} valuta={selectedCurrency} kurs={kurs} 
+           ocistiKorpu ={ocistiKorpu}/>
           </>) : (<Navigate to="/" />)}
         />
       <Route
@@ -156,7 +158,8 @@ function App() {
         element={loggedInUser ? (
           <>
           <Navbar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu} user = {loggedInUser} valuta={selectedCurrency} kurs={kurs}/>
+        <ReceptDetalji recepti={receptiData} namirnice={namirniceData} dodajUKorpu = {dodajUKorpu}
+         user = {loggedInUser} valuta={selectedCurrency} kurs={kurs} ocistiKorpu={ocistiKorpu}/>
         </>
         ) : (<Navigate to="/" />)} 
         />

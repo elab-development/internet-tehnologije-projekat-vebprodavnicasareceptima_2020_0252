@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user,valuta,kurs}) {
+function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,dodajUKorpu,user,valuta,kurs,ocistiKorpu}) {
   
 
 
@@ -32,6 +32,7 @@ function Namirnica({ namirnicaId, naziv, opis, slika, cena, velicina_pakovanja ,
         console.log(response.data);
         alert('Namirnica je uspešno obrisana.');
         // Ovde treba ažurirati listu namirnica nakon brisanja
+        ocistiKorpu();
       } catch (error) {
         console.error('Došlo je do greške prilikom brisanja namirnice:', error.response);
         alert('Greška prilikom brisanja namirnice!');

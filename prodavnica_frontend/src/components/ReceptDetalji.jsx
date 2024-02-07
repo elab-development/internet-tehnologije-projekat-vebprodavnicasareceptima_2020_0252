@@ -5,7 +5,7 @@ import Namirnica from "./Namirnica";
 import "../style/receptdetalji.css";
 import axios from "axios";
 
-function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user , valuta, kurs}) {
+function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user , valuta, kurs,ocistiKorpu}) {
   let { id } = useParams();
 
   let odabraniRecept = recepti.find((recept) => recept.id === parseInt(id));
@@ -94,6 +94,7 @@ function ReceptDetalji({ recepti, namirnice, dodajUKorpu, user , valuta, kurs}) 
                 user={user}
                 valuta={valuta}
                 kurs={kurs}
+                ocistiKorpu={ocistiKorpu}
               />
             </div>
           ))}
