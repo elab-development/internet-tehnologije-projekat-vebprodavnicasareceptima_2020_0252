@@ -12,36 +12,7 @@ class KorisnikController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-        $korisnici = korisnik::all();
-        return response()->json($korisnici);
-    }
-
-
-
-    public function show(Request $request)
-    {
-        $id = $request->input('id');
-        $korisnik = korisnik::find($id);
-        if (!$korisnik) {
-            return response()->json(['message' => 'Korisnik nije pronađen'], 404);
-        }
-        return response()->json($korisnik);
-    }
-
-
-
-    
-
-    
-    public function store(Request $request)
-    {
-        
-
-
-    }
+   
 
     
     
@@ -73,10 +44,7 @@ class KorisnikController extends Controller
     }
 
     
-    public function destroy(korisnik $korisnik)
-    {
-        
-    }
+   
 
 
     

@@ -45,9 +45,9 @@ function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti,ocistiKorpu 
     const params = new URLSearchParams();
     params.append('Adresa', adresa);
 
-    axios.post(`http://127.0.0.1:8000/api/korisnici/izmeni/${user.id}`, params)
+    axios.put(`http://127.0.0.1:8000/api/korisnici/izmeni/${user.id}`, params)
     .then((response) => {
-      // Obradite uspešan odgovor
+      
       
       alert('Adresa uspešno ažurirana!');
     })

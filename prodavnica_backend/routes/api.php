@@ -52,7 +52,7 @@ Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy'])
 //KORISNIK
 
 Route::get('/korisnici', [KorisnikController::class, 'index']);
-Route::post('/korisnici/izmeni/{id}', [KorisnikController::class, 'update']);
+Route::put('/korisnici/izmeni/{id}', [KorisnikController::class, 'update']);
 
 
 
@@ -132,15 +132,6 @@ Route::put('/stavkaRecept/izmeni/{id}', [StavkaReceptController::class, 'update'
 Route::delete('/stavkaRecept/izbrisi/{id}', [StavkaReceptController::class, 'destroy']);
 //samo autentifikovanim 
 
-Route::middleware('auth')->group(function () {
-   
-    
-});
-
-
-
-Route::get('/10namirnica', [NamirnicaController::class, 'index']);
-Route::get('/namirnice/filtriraj', [NamirnicaController::class, 'filtriraj']);
 
 
 Route::get('/prihod_po_dan', [KorpaController::class, 'prihodPoDanu']);
