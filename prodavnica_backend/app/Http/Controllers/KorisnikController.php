@@ -22,22 +22,13 @@ class KorisnikController extends Controller
     $validator = Validator::make($request->all(), [
         
         'Adresa' => 'string|max:255',
-       
     ]);
 
     if ($validator->fails()) {
-        return response()->json($validator->errors(), 400); // Vraćanje grešaka u validaciji
+        return response()->json($validator->errors(), 400); 
     }
-
-    // Pronalaženje postojećeg korisnika
     $korisnik = korisnik::findOrFail($id);
-
-    // Ažuriranje atributa korisnika
-   
     $korisnik->Adresa = $request->Adresa;
-  
-
-    // Čuvanje promena
     $korisnik->save();
 
     return response()->json(['message' => 'Korisnik uspešno ažuriran!', 'korisnik' => $korisnik]);
