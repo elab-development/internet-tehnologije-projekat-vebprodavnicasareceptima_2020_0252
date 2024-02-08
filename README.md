@@ -1,8 +1,8 @@
-PRODAVNICA SA RECEPTIMA
+<h1><strong>PRODAVNICA SA RECEPTIMA </strong></h1>
 
 Pre nego što se počne sa osnovnim koracima neophodno je imati instaliran Node.js i XAMPP.
 
-Pokretanje projekta na lokalnoj mašini
+<h2>Pokretanje projekta na lokalnoj mašini</h2>
 
 
 1.Postaviti se u željeni direktorijum
@@ -13,7 +13,7 @@ Pokretanje projekta na lokalnoj mašini
 
 4.Pokrenuti Apache i MySQL unutar XAMPP-a
 
-Pokretanje Laravel aplikacije
+<h2> <strong>Pokretanje Laravel aplikacije </strong></h2>
 
 
 1.Postaviti se u odgovarajući direktorijum izvršavanjem sledeće komande u terminalu: cd prodavnica_backend
@@ -35,7 +35,7 @@ SANCTUM_STATEFUL_DOMAINS=localhost:3000
 7.Popuniti bazu podacima uz pomoć seeder-a izvršavanjem sledeće komande u terminalu: php artisan db:seed
 
 
-Pokretanje React aplikacije
+<h2> <strong>Pokretanje React aplikacije </strong></h2>
 
 
 1.Vratiti se na početni direktorijum izvršavanjem sledeće komande u terminalu: cd ..
@@ -50,13 +50,13 @@ Pokretanje React aplikacije
 Nakon svih ovih koraka aplikacija je spremna za korišćenje.
 
 
-Funkcionalnosti
+<h2> <strong>Funkcionalnosti </strong></h2>
 
 
 U aplikaciji postoji tri vrste uloga korisnika: admin, ulogovani korisnik i neulogovani korisnik. Admini su korisnici koji su već definisani u bazi uz pomoć seeder-a. Ulogovani korisnik je onaj korisnik koji se registruje i zatim uloguje, a neulogovani korisnik je korisnik koji pristupi aplikaciji kllikom na dugme "Nastavi bez registracije".
 
 
-Funkcionalnosti korisnika koji je admin:
+<h3>Funkcionalnosti korisnika koji je admin:</h3>
 
 
 1.Logovanje u aplikaciju koriščenjem email-a i password-a
@@ -102,7 +102,7 @@ Funkcionalnosti korisnika koji je admin:
 21.Logout
 
 
-Funkcionalnosti koje ima ulogovani korisnik:
+<h3>Funkcionalnosti koje ima ulogovani korisnik:</h3>
 
 
 1.Registracija
@@ -144,7 +144,7 @@ Funkcionalnosti koje ima ulogovani korisnik:
 19.Logout
 
 
-Funkcionalnosti koje ima korisnik koji nije ulogovan:
+<h3>Funkcionalnosti koje ima korisnik koji nije ulogovan:</h3>
 
 
 1.Pregled svih namrinica na stanici za prikaz namirnica
