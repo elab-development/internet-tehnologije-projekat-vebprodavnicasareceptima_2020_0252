@@ -39,7 +39,7 @@ Route::get('/namirnice/kategorija', [NamirnicaController::class, 'namirnicePoKat
 Route::post('/namirnice/dodaj', [NamirnicaController::class, 'store']);
 Route::post('/upload-slika', [NamirnicaController::class, 'uploadSlika']);
 Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy']);
-    Route::put('/namirnice/izmeni/{id}', [NamirnicaController::class, 'update']);
+Route::put('/namirnice/izmeni/{id}', [NamirnicaController::class, 'update']);
 
 
 
@@ -135,5 +135,5 @@ Route::delete('/stavkaRecept/izbrisi/{id}', [StavkaReceptController::class, 'des
 
 
 Route::get('/prihod_po_dan', [KorpaController::class, 'prihodPoDanu']);
-Route::get('/prihod_po_mesec', [PrihodController::class, 'prihodPoMesecu']);
-Route::get('/prihod_po_godina', [PrihodController::class, 'prihodPoGodini']);
+Route::get('/prihod_po_mesec', [KorpaController::class, 'prihodPoMesecu']);
+Route::get('/prihod_po_godina', [KorpaController::class, 'prihodPoGodini']);
