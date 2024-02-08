@@ -6,9 +6,6 @@ import "../style/placanje.css";
 function Placanje({ korpa, user,ukupno,valuta,ukupnoUValuti,recepti,ocistiKorpu }) {
    
 
-
-
-
     const [transakcijaDetalji, setTransakcijaDetalji] = useState(null);
     const [poklapajuciRecept, setPoklapajuciRecept] = useState([]);
 

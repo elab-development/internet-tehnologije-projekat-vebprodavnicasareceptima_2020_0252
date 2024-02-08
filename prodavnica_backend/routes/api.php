@@ -25,6 +25,29 @@ use App\Http\Controllers\StavkaReceptController;
 
 
 
+
+//NAMIRNICA
+
+
+
+
+
+Route::get('/namirnice', [NamirnicaController::class, 'index']); //raadi
+Route::get('/namirnice/nadjiID', [NamirnicaController::class, 'show']); //radi
+Route::get('/namirnice/naziv', [NamirnicaController::class, 'pronadjiPoNaziv']);//radi
+Route::get('/namirnice/kategorija', [NamirnicaController::class, 'namirnicePoKategoriji']);//radi
+Route::post('/namirnice/dodaj', [NamirnicaController::class, 'store']);
+Route::post('/upload-slika', [NamirnicaController::class, 'uploadSlika']);
+Route::delete('/namirnice/obrisi/{id}', [NamirnicaController::class, 'destroy']);
+Route::put('/namirnice/izmeni/{id}', [NamirnicaController::class, 'update']);
+
+
+
+
+
+
+
+
 /*
 
 //KORISNIK

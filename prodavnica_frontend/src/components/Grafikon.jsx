@@ -43,7 +43,7 @@ const Grafikon = () => {
         <div className='grafikon_veliki'>
             <select className='grafikon_combic' value={period} onChange={handlePeriodChange}>
                 <option value="dan">Po danu</option>
-                <option value="mesec">Po mjesecu</option>
+                <option value="mesec">Po mesecu</option>
                 <option value="godina">Po godini</option>
             </select>
             <Chart 
